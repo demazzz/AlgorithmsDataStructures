@@ -49,6 +49,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="LinkedListTest.cs" />
     <Compile Include="LinkedListTest.RemoveAllTest.g.cs">
       <DependentUpon>LinkedListTest.cs</DependentUpon>
