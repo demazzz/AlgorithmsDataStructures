@@ -137,58 +137,7 @@ namespace AlgorithmsDataStructures
             }
 
         }
-        //public void RemoveAll(int _value)
-        //{
-        //    if (head == null) return;
-        //    else if (head == tail && head.value == _value)
-        //    {
-        //        head = tail = null;
-        //        return;
-        //    }
-        //    else
-        //    {
-        //        Node previous = null;
-        //        Node current = head;
-
-        //        while (current != null)
-        //        {
-        //            if (head.value == _value)
-        //            {
-        //                head = current.next;
-        //                current = current.next;
-        //            }
-        //            //if (previous != null)
-        //            //{
-        //                if (current.value == _value)
-        //                {
-        //                if (current.next == null)
-        //                {
-        //                    Remove(_value);
-        //                }
-        //                else
-        //                {
-        //                    previous.next = current.next;
-        //                    //tail = previous;
-        //                    previous = current;
-        //                    current = current.next;
-        //                }
-        //                 }
-        //                else
-        //                {
-        //                    previous = current;
-        //                    current = current.next;
-        //                }
-        //            }
-        //            //else
-        //            //{
-        //            //    previous = current;
-        //            //    current = current.next;
-        //            //}
-        //       // }
-        //    }
-        //}
-
-
+      
         public void Clear()
         {
             // здесь будет ваш код очистки всего списка
