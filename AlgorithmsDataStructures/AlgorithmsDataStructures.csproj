@@ -43,9 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\AlgorithmsDataStructures.Tests\Class1.cs">
-      <Link>Class1.cs</Link>
-    </Compile>
+    <Compile Include="Linked.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

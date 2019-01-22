@@ -12,9 +12,19 @@ namespace AlgorithmsDataStructures
     {
         static void Main(string[] args)
         {
-            Node node = new Node(1);
+            Node node1 = new Node(1);
             LinkedList aaa = new LinkedList();
+            aaa.AddInTail(new Node(3));
+            aaa.AddInTail(new Node(1));
+           
+            aaa.AddInTail(new Node(1));
+         
+            //aaa.AddInTail(new Node(3));
+            //aaa.AddInTail(new Node(1));
+            aaa.RemoveAll(1);
 
+            Console.ReadLine();
+            
 
         }
     }
