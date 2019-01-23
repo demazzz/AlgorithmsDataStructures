@@ -91,53 +91,50 @@ namespace AlgorithmsDataStructures
             return false;
         }
 
-
         public void RemoveAll(int _value)
         {
-            if (head == null) return;
-            else if (head == tail && head.value == _value)
+            Node previous = null;
+            Node current = head;
+            while (current != null)
             {
-                head = tail = null;
-                return;
-            }
-            else
-            {
-                Node previous = null;
-                Node current = head;
-
-                while (current != null)
+                if (current.value == _value)
                 {
-                    if (head.value == _value)
+                    if (previous != null)
                     {
-                        head = current.next;
-                        current = head;
-                        tail = previous;
-                    }
-                    else if (previous != null)
-                    {
-                        if (current.value == _value)
+                        previous.next = current.next;
+                        if (current.next == null)
                         {
-                            previous.next = current.next;
                             tail = previous;
                             current = current.next;
-
                         }
-                        else
-                        {
-                            previous = current;
-                            current = current.next;
-                        }
+                        else current = current.next; 
                     }
                     else
                     {
-                        previous = current;
-                        current = current.next;
+
+                        if (current.next == null)
+                        {
+                            head = null;
+                            tail = null;
+                        }
+                        else if (head == null || current.next == null)
+                        {
+                            tail = null;
+                        }
+                        else head = current.next;
+                        current = head;
                     }
+                    //return true;
+                }
+                else
+                {
+                    previous = current;
+                    current = current.next;
                 }
             }
-
+            //return false;
         }
-      
+
         public void Clear()
         {
             // здесь будет ваш код очистки всего списка
