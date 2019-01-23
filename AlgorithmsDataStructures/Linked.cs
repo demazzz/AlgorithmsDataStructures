@@ -44,7 +44,7 @@ namespace AlgorithmsDataStructures
         {
             // здесь будет ваш код поиска всех узлов по заданному значению
             List<Node> nodes = new List<Node>();
-            if (head == null) return null;
+            if (head == null) return nodes;
             else
             {
                 

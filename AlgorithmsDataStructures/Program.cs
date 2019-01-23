@@ -14,12 +14,12 @@ namespace AlgorithmsDataStructures
         {
             LinkedList aaa = new LinkedList();
             //aaa.AddInTail(new Node(3));
-            aaa.AddInTail(new Node(1));
+            //aaa.AddInTail(new Node(1));
            // aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
-            aaa.AddInTail(new Node(2));
+           // aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
-            aaa.AddInTail(new Node(3));
+           // aaa.AddInTail(new Node(3));
 
             //
             List<Node> lll = new List<Node>();
