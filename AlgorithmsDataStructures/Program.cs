@@ -19,11 +19,11 @@ namespace AlgorithmsDataStructures
             //aaa.AddInTail(new Node(3));
             aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
-             //aaa.AddInTail(new Node(3));
+            aaa.AddInTail(new Node(3));
 
             //
-            
-            aaa.RemoveAll(3);
+            List<Node> lll = new List<Node>();
+            lll=(aaa.FindAll(3));
 
             Console.ReadLine();
             

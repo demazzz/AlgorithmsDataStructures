@@ -43,10 +43,11 @@ namespace AlgorithmsDataStructures
         public List<Node> FindAll(int _value)
         {
             // здесь будет ваш код поиска всех узлов по заданному значению
+            List<Node> nodes = new List<Node>();
             if (head == null) return null;
             else
             {
-                List<Node> nodes = new List<Node>();
+                
                 Node node = head;
                 while (node != null)
                 {
