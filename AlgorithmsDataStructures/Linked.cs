@@ -124,7 +124,6 @@ namespace AlgorithmsDataStructures
                         else head = current.next;
                         current = head;
                     }
-                    //return true;
                 }
                 else
                 {
@@ -132,7 +131,6 @@ namespace AlgorithmsDataStructures
                     current = current.next;
                 }
             }
-            //return false;
         }
 
         public void Clear()
