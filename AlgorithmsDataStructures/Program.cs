@@ -14,7 +14,7 @@ namespace AlgorithmsDataStructures
         {
             LinkedList aaa = new LinkedList();
             //aaa.AddInTail(new Node(3));
-            //aaa.AddInTail(new Node(1));
+            aaa.AddInTail(new Node(1));
            // aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
            // aaa.AddInTail(new Node(2));
@@ -23,7 +23,7 @@ namespace AlgorithmsDataStructures
 
             //
             List<Node> lll = new List<Node>();
-            lll=(aaa.FindAll(3));
+            lll=(aaa.FindAll(1));
 
             Console.ReadLine();
             

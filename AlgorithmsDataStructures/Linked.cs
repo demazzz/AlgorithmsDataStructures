@@ -44,19 +44,16 @@ namespace AlgorithmsDataStructures
         {
             // здесь будет ваш код поиска всех узлов по заданному значению
             List<Node> nodes = new List<Node>();
-            if (head == null) return nodes;
-            else
-            {
-                
+            if (head != null) 
+           {
                 Node node = head;
                 while (node != null)
                 {
                     if (node.value == _value) nodes.Add(node);
                     node = node.next;
-                }
-                return nodes;
+                }    
             }
-
+            return nodes;
         }
 
         public bool Remove(int _value)
