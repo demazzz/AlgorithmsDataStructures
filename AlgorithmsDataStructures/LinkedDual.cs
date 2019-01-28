@@ -17,12 +17,12 @@ namespace AlgorithmsDataStructures
          }
     }
 
-    public class LinkedList
+    public class LinkedList2
     {
         public Node head;
         public Node tail;
 
-        public LinkedList()
+        public LinkedList2()
         {
             head = null;
             tail = null;
