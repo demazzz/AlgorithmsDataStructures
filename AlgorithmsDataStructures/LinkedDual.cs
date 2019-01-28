@@ -87,16 +87,19 @@ namespace AlgorithmsDataStructures
                     //узел в середине
                     if (prevnode != null)
                     {
-                        prevnode.next = node.next;//следуюйщий предыдущего связываем со следующим
+                        //было 1 2 3
+                        //стало 1 3
+                        prevnode.next = node.next; // 1 связали с 3
                         
                         //узел в конце
                         if (node.next == null)
                         {
                            tail = prevnode;//хвост делаем предыдущим 
                         }
+                        //
                         else
                         {
-                            node.next.prev = node.next;
+                            node.next.prev = prevnode;
                         }
                     }
                     //узел в начале

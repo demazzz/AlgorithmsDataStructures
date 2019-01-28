@@ -12,27 +12,28 @@ namespace AlgorithmsDataStructures
     {
         static void Main(string[] args)
         {
-            LinkedList aaa = new LinkedList();
+            LinkedList2 aaa = new LinkedList2();
             //aaa.AddInTail(new Node(1));
             //aaa.AddInTail(new Node(1));
             //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
             //aaa.AddInTail(new Node(4));
-            aaa.AddInTail(new Node(2));
-            aaa.AddInTail(new Node(2));
             aaa.AddInTail(new Node(1));
-            aaa.AddInTail(new Node(1));
-            aaa.AddInTail(new Node(0));
             aaa.AddInTail(new Node(2));
             aaa.AddInTail(new Node(2));
+            //aaa.AddInTail(new Node(1));
+            //aaa.AddInTail(new Node(1));
+            //aaa.AddInTail(new Node(0));
+            //aaa.AddInTail(new Node(2));
+            //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(1));
             //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
             //aaa.AddInTail(new Node(3));
 
-            aaa.RemoveAll(2);
+            aaa.Remove(2);
 
             Console.ReadLine();
 
