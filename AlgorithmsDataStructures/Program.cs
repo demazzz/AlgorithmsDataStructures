@@ -13,22 +13,31 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
             LinkedList aaa = new LinkedList();
+            //aaa.AddInTail(new Node(1));
+            //aaa.AddInTail(new Node(1));
+            //aaa.AddInTail(new Node(2));
+            //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
+            //aaa.AddInTail(new Node(4));
+            aaa.AddInTail(new Node(2));
+            aaa.AddInTail(new Node(2));
             aaa.AddInTail(new Node(1));
-           // aaa.AddInTail(new Node(2));
+            aaa.AddInTail(new Node(1));
+            aaa.AddInTail(new Node(0));
+            aaa.AddInTail(new Node(2));
+            aaa.AddInTail(new Node(2));
+            //aaa.AddInTail(new Node(2));
+            //aaa.AddInTail(new Node(1));
+            //aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
-           // aaa.AddInTail(new Node(2));
             //aaa.AddInTail(new Node(3));
-           // aaa.AddInTail(new Node(3));
 
-            //
-            List<Node> lll = new List<Node>();
-            lll=(aaa.FindAll(1));
+            aaa.RemoveAll(2);
 
             Console.ReadLine();
-            
+
 
         }
     }
-  
+
 }
