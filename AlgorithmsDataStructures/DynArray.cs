@@ -101,7 +101,7 @@ namespace AlgorithmsDataStructures
                 {   //было 5 4 3 2 1
                     //стало 5 4 2 1
   //индекс 2 (3). из исходного вектора копируется значения 2 и 1 в исходный массив, при этом длина 5 - 2 + 1 = 4
-                    Array.Copy(array, index + 1, array, index, count - index);
+                    Array.Copy(array, index + 1, array, index, count - index);//count - index!
                 }
                
                 count--;
