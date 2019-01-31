@@ -15,25 +15,12 @@ namespace AlgorithmsDataStructures
             
           
             DynArray<int> aaa = new DynArray<int>();
-
-
-            for (int i = 1; i <= 33; i++)
-            {
-                aaa.Append(i);
-                Console.WriteLine("{0} element and {1} is Count. Capacity = {2}", aaa.GetItem(i - 1).ToString(), aaa.count.ToString(), aaa.capacity.ToString());
-            }
-
-
-            for (int i = 33; i < 66; i++)
-            {
-                aaa.Insert((i + 1) * 10, i);
-            }
-            for (int i = aaa.count; i >= 0; i--)
-            {
-
-                Console.WriteLine("{0} element and {1} is Count. Capacty = {2}", aaa.GetItem(i).ToString(), aaa.count.ToString(), aaa.capacity.ToString());
-                aaa.Remove(i);
-            }
+            aaa.Append(1);
+            aaa.Append(2);
+            aaa.Append(3);
+            aaa.Append(4);
+            aaa.Remove(0);
+            aaa.Remove(2);
             Console.WriteLine("{0} is Count. Capacity = {1}", aaa.count.ToString(), aaa.capacity.ToString());
             Console.ReadLine();
         }

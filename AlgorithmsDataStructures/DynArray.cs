@@ -86,11 +86,11 @@ namespace AlgorithmsDataStructures
 
         public void Remove(int index)
         {
-            if (index > count)
+            if (index >= count)
             {
                 throw new IndexOutOfRangeException();
             }
-            if (index == 0)
+            if (index == 0 && count ==1)
             {
                 array[0] = default(T);
                 count = 0;
@@ -100,9 +100,10 @@ namespace AlgorithmsDataStructures
                 if (index <= count)
                 {   //было 5 4 3 2 1
                     //стало 5 4 2 1
-                    //индекс 2 (3) из исходного вектора копируется 2 и 1 в исходный массив, при этом длина 5 - 2 + 1 = 4
-                    Array.Copy(array, index + 1, array, index, count - index + 1);
+  //индекс 2 (3). из исходного вектора копируется значения 2 и 1 в исходный массив, при этом длина 5 - 2 + 1 = 4
+                    Array.Copy(array, index + 1, array, index, count - index);
                 }
+               
                 count--;
                 //Count был 33 - lenght 64, стал 32, значит надо сделать новый массив length 32
                 //проверка 32*2 > length? если да, то ничего не делаем, если нет или равно то можно уменьшать
