@@ -19,7 +19,7 @@ namespace AlgorithmsDataStructures
             for (int i = 1; i <= 33; i++)
             {
                 aaa.Append(i);
-                Console.WriteLine("{0} element and {1} is Count. Lenght = {2}", aaa.GetItem(i-1).ToString(), aaa.count.ToString(), aaa.array.Length.ToString());
+                Console.WriteLine("{0} element and {1} is Count. Capacity = {2}", aaa.GetItem(i-1).ToString(), aaa.count.ToString(), aaa.capacity.ToString());
             }
            
 
@@ -30,12 +30,12 @@ namespace AlgorithmsDataStructures
             for (int i = aaa.count; i > 0; i--)
             {
                 
-                Console.WriteLine("{0} element and {1} is Count. Lenght = {2}", aaa.GetItem(i).ToString(), aaa.count.ToString(), aaa.array.Length.ToString());
+                Console.WriteLine("{0} element and {1} is Count. Capacty = {2}", aaa.GetItem(i).ToString(), aaa.count.ToString(), aaa.capacity.ToString());
                 aaa.Remove(i);
                 
 
             }
-            Console.WriteLine("{0} is Count. Lenght = {1}", aaa.count.ToString(), aaa.array.Length.ToString());
+            Console.WriteLine("{0} is Count. Capacity = {1}", aaa.count.ToString(), aaa.capacity.ToString());
             Console.ReadLine();
         }
     }

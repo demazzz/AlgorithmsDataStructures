@@ -13,21 +13,26 @@ namespace AlgorithmsDataStructures
         public DynArray()
         {
             count = 0;
-            MakeArray(16);
+            capacity = 16;
+            MakeArray(capacity);
         }
 
         public void MakeArray(int new_capacity)
         {
             // ваш код
+            //capacity = array.Length;
             if (new_capacity < 16)
                 new_capacity = 16;
             T[] newArray = new T[new_capacity]; //создаем новый массив заданной длины
-            if (array !=null && array.Length<new_capacity)
-            Array.Copy(array,0,newArray,0,count); //копируем все данные в него
-            if (array != null && array.Length > new_capacity)
+            if (array != null && capacity < new_capacity)
+                array.CopyTo(newArray, 0);
+            //Array.Copy(array,0,newArray,0,count); //копируем все данные в него
+            //если удаляем
+            if (array != null && capacity > new_capacity)
                 Array.Copy(array, 0, newArray, 0, count + 1); //копируем все данные в него
 
             array = newArray; //присваиваем ему имя array
+            capacity = array.Length;
         }
 
         public T GetItem(int index)
@@ -47,9 +52,9 @@ namespace AlgorithmsDataStructures
         public void Append(T itm)
         {
             // ваш код
-            if (array.Length==count)
+            if (capacity==count)
             {
-                MakeArray(array.Length * 2);
+                MakeArray(capacity * 2);
             }
             array[count++] = itm;
         }
@@ -66,9 +71,9 @@ namespace AlgorithmsDataStructures
                 
             }
             
-                if (array.Length == count)
+                if (capacity == count)
                 {
-                    this.MakeArray(count * 2);
+                    this.MakeArray(capacity * 2);
                 }
                 //из текущего 5 4 3 2 1 берём все с индекса 2 (3) 
                 //вставляем в индекса 2+1 длиной 3 = 5-2
@@ -79,22 +84,6 @@ namespace AlgorithmsDataStructures
             
         }
 
-        //public void Remove(int index)
-        //{
-        //    if (index >= count)
-        //    {
-        //        throw new IndexOutOfRangeException();
-        //    }
-
-        //    int shiftStart = index + 1;
-        //    if (shiftStart < count)
-        //    {
-        //        // Shift all the items following index one slot to the left.
-        //        Array.Copy(array, shiftStart, array, index, count - shiftStart);
-        //    }
-
-        //    count--;
-        //}
         public void Remove(int index)
         {
             if (index > count)
@@ -110,9 +99,9 @@ namespace AlgorithmsDataStructures
             count--;
             //Count был 33 - lenght 64, стал 32, значит надо сделать новый массив length 32
             //проверка 32*2 > length? если да, то ничего не делаем, если нет или равно то можно уменьшать
-            if (count * 2 <= array.Length + 1 && array.Length > 16)
+            if (count * 2 <= capacity + 1 && capacity > 16)
             {
-                float newSize = array.Length / 1.5f;
+                float newSize = capacity / 1.5f;
                 int n = (int)newSize;
                 MakeArray((n));
             }
