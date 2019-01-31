@@ -68,20 +68,20 @@ namespace AlgorithmsDataStructures
             if (index == count)
             {
                 Append(itm);
-                
             }
-            
+            else
+            {
                 if (capacity == count)
                 {
                     this.MakeArray(capacity * 2);
                 }
                 //из текущего 5 4 3 2 1 берём все с индекса 2 (3) 
                 //вставляем в индекса 2+1 длиной 3 = 5-2
-                Array.Copy(array, index, array, index + 1, count-index);
+                Array.Copy(array, index, array, index + 1, count - index);
                 array[index] = itm;
                 count++;
                 // ваш код
-            
+            }
         }
 
         public void Remove(int index)
@@ -90,22 +90,29 @@ namespace AlgorithmsDataStructures
             {
                 throw new IndexOutOfRangeException();
             }
-            if (index <= count)
-            {   //было 5 4 3 2 1
-                //стало 5 4 2 1
-                //индекс 2 (3) из исходного вектора копируется 2 и 1 в исходный массив, при этом длина 5 - 2 + 1 = 4
-                Array.Copy(array, index + 1, array, index, count - index + 1);
-            }
-            count--;
-            //Count был 33 - lenght 64, стал 32, значит надо сделать новый массив length 32
-            //проверка 32*2 > length? если да, то ничего не делаем, если нет или равно то можно уменьшать
-            if (count * 2 <= capacity + 1 && capacity > 16)
+            if (index == 0)
             {
-                float newSize = capacity / 1.5f;
-                int n = (int)newSize;
-                MakeArray((n));
+                array[0] = default(T);
+                count = 0;
             }
-
+            else
+            {
+                if (index <= count)
+                {   //было 5 4 3 2 1
+                    //стало 5 4 2 1
+                    //индекс 2 (3) из исходного вектора копируется 2 и 1 в исходный массив, при этом длина 5 - 2 + 1 = 4
+                    Array.Copy(array, index + 1, array, index, count - index + 1);
+                }
+                count--;
+                //Count был 33 - lenght 64, стал 32, значит надо сделать новый массив length 32
+                //проверка 32*2 > length? если да, то ничего не делаем, если нет или равно то можно уменьшать
+                if ((count) * 2 <= capacity && capacity > 16)
+                {
+                    float newSize = capacity / 1.5f;
+                    int n = (int)newSize;
+                    MakeArray((n));
+                }
+            }
             // ваш код
         }
 
