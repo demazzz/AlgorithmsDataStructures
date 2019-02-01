@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="balance.cs" />
     <Compile Include="DynArray.cs" />
     <Compile Include="LinkedDual.cs" />
     <Compile Include="Linked.cs" />
+    <Compile Include="MyStrack.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

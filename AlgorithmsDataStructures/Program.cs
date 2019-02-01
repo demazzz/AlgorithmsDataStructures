@@ -12,21 +12,24 @@ namespace AlgorithmsDataStructures
     {
         static void Main(string[] args)
         {
-            
-          
-            DynArray<int> aaa = new DynArray<int>();
-            for (int i =0; i< 33;i++)
-            {
-                aaa.Append(i);
-            }
-            Console.WriteLine("{0} is Count. Capacity = {1}", aaa.count.ToString(), aaa.capacity.ToString());
 
-         
-            aaa.Remove(32);
-            aaa.Remove(2);
-            aaa.Remove(0);
-            Console.WriteLine("{0} is Count. Capacity = {1}", aaa.count.ToString(), aaa.capacity.ToString());
-            Console.ReadLine();
+            Stack<char> mystack = new Stack<char>();
+            //mystack.Push(1);
+            //mystack.Push("2");
+            //mystack.Push(3.14);
+            //Console.WriteLine(mystack.Pop().ToString());
+            //Console.WriteLine(mystack.Peek().ToString());
+            //Console.WriteLine(mystack.Pop().ToString());
+            //Console.WriteLine(mystack.Peek().ToString());
+            //Console.WriteLine(mystack.Pop().ToString());
+            //Console.WriteLine(mystack.Peek().ToString());
+            //Console.ReadLine();
+            balance.postfix(Console.ReadLine());
+
+            
+            
+        Console.ReadLine();
+            
         }
     }
 
