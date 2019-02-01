@@ -13,22 +13,22 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
 
-            Stack<char> mystack = new Stack<char>();
-            //mystack.Push(1);
-            //mystack.Push("2");
-            //mystack.Push(3.14);
-            //Console.WriteLine(mystack.Pop().ToString());
-            //Console.WriteLine(mystack.Peek().ToString());
-            //Console.WriteLine(mystack.Pop().ToString());
-            //Console.WriteLine(mystack.Peek().ToString());
-            //Console.WriteLine(mystack.Pop().ToString());
-            //Console.WriteLine(mystack.Peek().ToString());
-            //Console.ReadLine();
-            balance.postfix(Console.ReadLine());
+            Queue<object> mystack = new Queue<object>();
+            mystack.Enqueue(1);
+            mystack.Enqueue("2");
+            mystack.Enqueue(3.14);
+            Console.WriteLine(mystack.Dequeue().ToString());
+           // Console.WriteLine(mystack.Size().ToString());
+            Console.WriteLine(mystack.Dequeue().ToString());
+           // Console.WriteLine(mystack.Size().ToString());
+            Console.WriteLine(mystack.Dequeue().ToString());
+           // Console.WriteLine(mystack.Size().ToString());
+            Console.ReadLine();
 
-            
-            
-        Console.ReadLine();
+
+
+
+            Console.ReadLine();
             
         }
     }
