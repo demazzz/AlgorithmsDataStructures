@@ -13,10 +13,15 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
 
-            Queue<object> mystack = new Queue<object>();
+            queues_additions mystack = new queues_additions();
+
             mystack.Enqueue(1);
             mystack.Enqueue("2");
             mystack.Enqueue(3.14);
+            mystack.Enqueue(4);
+            mystack.Enqueue(5);
+            mystack.Enqueue(6);
+
             Console.WriteLine(mystack.Dequeue().ToString());
            // Console.WriteLine(mystack.Size().ToString());
             Console.WriteLine(mystack.Dequeue().ToString());
@@ -24,6 +29,7 @@ namespace AlgorithmsDataStructures
             Console.WriteLine(mystack.Dequeue().ToString());
            // Console.WriteLine(mystack.Size().ToString());
             Console.ReadLine();
+
 
 
 

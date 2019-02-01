@@ -6,28 +6,28 @@ namespace AlgorithmsDataStructures
 
     public class Queue<T>
     {
-        public List<T> list;
+        public List<T> List;
         public int count;
         public Queue()
         {
             // инициализация внутреннего хранилища очереди
-            list = new List<T>();
+            List = new List<T>();
             count = 0;
         }
 
         public void Enqueue(T item)
         {
-            list.Add(item);
+            List.Add(item);
             count++;
             // вставка в хвост
         }
 
         public T Dequeue()
         {
-            if (list.Count>0)
+            if (List.Count>0)
             {
-                T item =  list[0];
-                list.RemoveAt(0);
+                T item =  List[0];
+                List.RemoveAt(0);
                 count--;
                 return item;
             }
@@ -35,7 +35,16 @@ namespace AlgorithmsDataStructures
             // выдача из головы
             return default(T); // если очередь пустая
         }
+        public void rotate(int N)
+        {
+            for (int i=0;i<N;i++)
+            {
+                List.Add(List[0]);
+                List.RemoveAt(0);
+            }
+            return;
 
+        }
         public int Size()
         {
             if (count > 0)
