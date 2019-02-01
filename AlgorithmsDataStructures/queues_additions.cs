@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsDataStructures
 {
-    public class queues_additions
+    public class queues_additions<T>
     {
-        public Stack<object> s1;
-        Stack<object> s2;
+        public Stack<T> s1;
+        Stack<T> s2;
         public queues_additions()
         {
-            s1 = new Stack<object>();
-            s2 = new Stack<object>();
+            s1 = new Stack<T>();
+            s2 = new Stack<T>();
         }
         public int size()
         {
@@ -42,7 +42,7 @@ namespace AlgorithmsDataStructures
             else
                 return default(object);
         }
-        public void Enqueue(object item)
+        public void Enqueue(T item)
         {
             s1.Push(item);
         }

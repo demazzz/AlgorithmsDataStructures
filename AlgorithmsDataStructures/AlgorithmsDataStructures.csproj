@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="balance.cs" />
+    <Compile Include="Deqeue.cs" />
     <Compile Include="DynArray.cs" />
     <Compile Include="LinkedDual.cs" />
     <Compile Include="Linked.cs" />
