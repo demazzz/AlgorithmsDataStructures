@@ -20,14 +20,14 @@ namespace AlgorithmsDataStructures
             if (s1.count > 0)
                 return s1.count;
             else
-            return 0;
+                return 0;
         }
         public object Dequeue()
         {
             if (s1.count != 0)
             {
                 object result = default(object);
-                while(s1.count>1)
+                while (s1.count > 1)
                 {
                     s2.Push(s1.Pop());
                 }
