@@ -181,11 +181,13 @@ namespace AlgorithmsDataStructures
                         if (node.next == null)
                         {
                             tail = prevnode;//хвост делаем предыдущим 
+                            return;
                         }
                         //
                         else
                         {
                             node.next.prev = prevnode;
+                            return;
                         }
                     }
                     //узел в начале
@@ -194,12 +196,14 @@ namespace AlgorithmsDataStructures
                         if (node.next == null)
                         {
                             head = tail = null;
+                            return;
                         }
 
                         else
                         {
                             head = head.next;
                             head.prev = null;
+                            return;
                         }
 
                     }
