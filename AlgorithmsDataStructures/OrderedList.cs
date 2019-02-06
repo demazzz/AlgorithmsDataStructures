@@ -146,6 +146,7 @@ namespace AlgorithmsDataStructures
         public Node<T> Find(T val)
         {
             // здесь будет ваш код
+            
                 Node<T> node = head;
                 while (node != null)
                 {
@@ -158,53 +159,62 @@ namespace AlgorithmsDataStructures
         public void Delete(T val)
         {
             // здесь будет ваш код
-            Node<T> prevnode = null;
-            Node<T> node = head;
-
-            while (node != null)
+            if (head == null)
+                return;
+            else if (Count()==1 && head.value.Equals(val))
             {
-                if (head == null)
-                {
-                    tail = null;
-                }
-                if (node.value.Equals(val))
-                {
-                    //узел в середине
-                    if (prevnode != null)
-                    {
-                        //было 1 2 3
-                        //стало 1 3
-                        prevnode.next = node.next; // 1 связали с 3
+                head = tail = null;
+            }
+            else
+            {
+                Node<T> prevnode = null;
+                Node<T> node = head;
 
-                        //узел в конце
-                        if (node.next == null)
+                while (node != null)
+                {
+                    if (head == null)
+                    {
+                        tail = null;
+                    }
+                    if (node.value.Equals(val))
+                    {
+                        //узел в середине
+                        if (prevnode != null)
                         {
-                            tail = prevnode;//хвост делаем предыдущим 
+                            //было 1 2 3
+                            //стало 1 3
+                            prevnode.next = node.next; // 1 связали с 3
+
+                            //узел в конце
+                            if (node.next == null)
+                            {
+                                tail = prevnode;//хвост делаем предыдущим 
+                            }
+                            //
+                            else
+                            {
+                                node.next.prev = prevnode;
+                            }
                         }
-                        //
+                        //узел в начале
                         else
                         {
-                            node.next.prev = prevnode;
+                            if (node.next == null)
+                            {
+                                head = tail = null;
+                            }
+
+                            else
+                            {
+                                head = head.next;
+                                head.prev = null;
+                            }
+
                         }
                     }
-                    //узел в начале
-                    else
-                    {
-                        if (node.next == null)
-                        {
-                            head = tail = null;
-                        }
-
-                        else
-                        {
-                            head = head.next;
-                            head.prev = null;
-                        }
-
-                    }
+                    prevnode = node;
+                    node = node.next;
                 }
-                prevnode = node;
-                node = node.next;
             }
         }
     
