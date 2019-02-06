@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace AlgorithmsDataStructures
 {
 
-    public class Node<T>
+    public class Node<T> 
     {
         public T value;
         public Node<T> next, prev;
@@ -29,7 +29,7 @@ namespace AlgorithmsDataStructures
             _ascending = asc;
         }
 
-        public int Compare(T v1, T v2)
+        public int Compare(T v1, T v2) 
         {
             int result = 0;
             if (typeof(T) == typeof(String))
@@ -58,10 +58,9 @@ namespace AlgorithmsDataStructures
             else
             {
                 // универсальное сравнение
-                string s1 = v1.ToString();
-                string s2 = v2.ToString();
-                decimal d1 = Convert.ToDecimal(s1);
-                decimal d2 = Convert.ToDecimal(s2);
+                var d1 = v1 as string;
+                var d2 = v2 as string;
+
                 if (_ascending == true)
                     result = d2.CompareTo(d1);
                 else
@@ -159,67 +158,53 @@ namespace AlgorithmsDataStructures
         public void Delete(T val)
         {
 
-            Node<T> previous = null;
-            Node<T> current = head;
-            while (current != null)
+            Node<T> prevnode = null;
+            Node<T> node = head;
+
+            while (node != null)
             {
-                if (current.value.Equals(val))
+                if (head == null)
                 {
-                    //если находится не в начале
-                    if (previous != null)
+                    tail = null;
+                }
+                if (node.value.Equals(val))
+                {
+                    //узел в середине
+                    if (prevnode != null)
                     {
-                        //было ..1 2 3..
-                        //стало ..1 3..
-                        previous.next = current.next;
+                        //было 1 2 3
+                        //стало 1 3
+                        prevnode.next = node.next; // 1 связали с 3
 
-                        //если упёрлись в tail и дальше нуль
-                        //было ..1 2 3 4
-                        //стало ..1 2 3 
-                        if (current.next == null)
+                        //узел в конце
+                        if (node.next == null)
                         {
-                            tail = previous;
-                            current = current.next;
+                            tail = prevnode;//хвост делаем предыдущим 
                         }
-
+                        //
                         else
                         {
-                            previous.next.prev = previous;
-
-                            current = current.next;
-
+                            node.next.prev = prevnode;
                         }
                     }
-                    //находится в первом элементе - head
+                    //узел в начале
                     else
                     {
-                        //если только один элемент
-                        if (current.next == null)
+                        if (node.next == null)
                         {
-                            head = null;
-                            tail = null;
-                            return;
+                            head = tail = null;
                         }
-                        //если голова ноль или дальше ноль. бред какой-то написал...
-                        else if (head == null || current.next == null)
-                        {
-                            tail = null;
-                        }
-                        //если дальше есть значения и 
-                        //было 1 2 3
-                        //стало 2 3
+
                         else
                         {
-                            head = current.next;
+                            head = head.next;
                             head.prev = null;
-                            current = head;
                         }
+
                     }
                 }
-                else
-                {
-                    previous = current;
-                    current = current.next;
-                }
+                prevnode = node;
+                node = node.next;
             }
         }
         
