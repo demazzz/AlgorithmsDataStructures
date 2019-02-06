@@ -58,8 +58,9 @@ namespace AlgorithmsDataStructures
             else
             {
                 // универсальное сравнение
-                var d1 = v1 as string;
-                var d2 = v2 as string;
+                
+                var d1 = v1.ToString();
+                var d2 = v2.ToString();
 
                 if (_ascending == true)
                     result = d2.CompareTo(d1);
@@ -227,17 +228,29 @@ namespace AlgorithmsDataStructures
             else
             {
                 Node<T> node = head;
+                Node<T> nodeT = tail;
                 int count = 0;
+                int countt = 0;
                 while (node != null)
                 {
                     count++;
                     node = node.next;
+                 
                 }
-                return count;
+                while (nodeT != null)
+                {
+                    countt++;
+                    nodeT = nodeT.prev;
+
+                }
+                if (count == countt)
+                    return count;
+                else
+                    return 0;
             }
         }
 
-        public List<Node<T>> GetAll() // выдать все элементы упорядоченного 
+        List<Node<T>> GetAll() // выдать все элементы упорядоченного 
                                // списка в виде стандартного списка
         {
             List<Node<T>> r = new List<Node<T>>();
