@@ -29,7 +29,7 @@ namespace AlgorithmsDataStructures
             _ascending = asc;
         }
 
-        public int Compare (T v1, T v2)
+        public int Compare(T v1, T v2)
         {
             int result = 0;
             if (typeof(T) == typeof(String))
@@ -38,7 +38,7 @@ namespace AlgorithmsDataStructures
                 string s1 = v1.ToString();
                 string s2 = v2.ToString();
                 if (s1[0] == ' ') s1 = s1.TrimStart(' ');
-                if (s1[s1.Length-1] == ' ') s1 = s1.TrimStart(' ');
+                if (s1[s1.Length - 1] == ' ') s1 = s1.TrimStart(' ');
                 if (s2[0] == ' ') s2 = s2.TrimStart(' ');
                 if (s2[s2.Length - 1] == ' ') s2 = s2.TrimStart(' ');
                 if (_ascending == true)
@@ -95,13 +95,13 @@ namespace AlgorithmsDataStructures
                 }
                 //случай 2.2
                 //было 1 2 4 5, вставляем 3
-                if(move >= 0 && (node.next!=null && node.prev!=null))
+                if (move >= 0 && (node.next != null && node.prev != null))
                 {
                     newnode.next = node;
                     newnode.prev = node.prev;
                     node.prev.next = newnode;
                     node.prev = newnode;
-                    
+
                 }
                 //случай 2.1
                 //было 1 2 3, вставляем 4
@@ -146,78 +146,86 @@ namespace AlgorithmsDataStructures
         public Node<T> Find(T val)
         {
             // здесь будет ваш код
-            
-                Node<T> node = head;
-                while (node != null)
-                {
-                    if (node.value.Equals(val)) return node;
-                    node = node.next;
-                }
-                return null;
+
+            Node<T> node = head;
+            while (node != null)
+            {
+                if (node.value.Equals(val)) return node;
+                node = node.next;
+            }
+            return null;
         }
 
         public void Delete(T val)
         {
-            // здесь будет ваш код
-            if (head == null)
-                return;
-            else if (Count()==1 && head.value.Equals(val))
-            {
-                head = tail = null;
-            }
-            else
-            {
-                Node<T> prevnode = null;
-                Node<T> node = head;
 
-                while (node != null)
+            Node<T> previous = null;
+            Node<T> current = head;
+            while (current != null)
+            {
+                if (current.value.Equals(val))
                 {
-                    if (head == null)
+                    //если находится не в начале
+                    if (previous != null)
                     {
-                        tail = null;
-                    }
-                    if (node.value.Equals(val))
-                    {
-                        //узел в середине
-                        if (prevnode != null)
-                        {
-                            //было 1 2 3
-                            //стало 1 3
-                            prevnode.next = node.next; // 1 связали с 3
+                        //было ..1 2 3..
+                        //стало ..1 3..
+                        previous.next = current.next;
 
-                            //узел в конце
-                            if (node.next == null)
-                            {
-                                tail = prevnode;//хвост делаем предыдущим 
-                            }
-                            //
-                            else
-                            {
-                                node.next.prev = prevnode;
-                            }
+                        //если упёрлись в tail и дальше нуль
+                        //было ..1 2 3 4
+                        //стало ..1 2 3 
+                        if (current.next == null)
+                        {
+                            tail = previous;
+                            current = current.next;
                         }
-                        //узел в начале
+
                         else
                         {
-                            if (node.next == null)
-                            {
-                                head = tail = null;
-                            }
+                            previous.next.prev = previous;
 
-                            else
-                            {
-                                head = head.next;
-                                head.prev = null;
-                            }
+                            current = current.next;
 
                         }
                     }
-                    prevnode = node;
-                    node = node.next;
+                    //находится в первом элементе - head
+                    else
+                    {
+                        //если только один элемент
+                        if (current.next == null)
+                        {
+                            head = null;
+                            tail = null;
+                            return;
+                        }
+                        //если голова ноль или дальше ноль. бред какой-то написал...
+                        else if (head == null || current.next == null)
+                        {
+                            tail = null;
+                        }
+                        //если дальше есть значения и 
+                        //было 1 2 3
+                        //стало 2 3
+                        else
+                        {
+                            head = current.next;
+                            head.prev = null;
+                            current = head;
+                        }
+                    }
+                }
+                else
+                {
+                    previous = current;
+                    current = current.next;
                 }
             }
         }
+        
     
+
+
 
         public void Clear(bool asc)
         {
