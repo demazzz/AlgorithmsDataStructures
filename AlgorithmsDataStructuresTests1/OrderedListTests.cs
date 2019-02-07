@@ -158,7 +158,7 @@ namespace AlgorithmsDataStructures.Tests
             two.Add(2);
             two.Add(1);
             two.Add(0);
-            if (expected==actual && one.Count() == two.Count())
+            if (expected==actual && one.Count() == two.Count() && one.Count()==6)
             {
                 for (int i =0; i< one.Count(); i++)
                 {
