@@ -19,6 +19,9 @@ namespace AlgorithmsDataStructures.Tests
             OrderedList<object> three = new OrderedList<object>(false);
             OrderedList<string> four = new OrderedList<string>(false);
         }
+       
+
+
         [TestMethod()]
         public void deleteempty()
         {
@@ -261,6 +264,27 @@ namespace AlgorithmsDataStructures.Tests
                 else Assert.Fail();
             }
             else Assert.Fail();
+
+
+        }
+
+        [TestMethod()]
+        public void notMyTest()
+        {
+            
+            OrderedList<int> ol = new OrderedList<int>(true);
+            ol.Add(0);
+            ol.Add(2);
+            ol.Add(1);
+            ol.Add(1);
+            ol.Add(2);
+            ol.Add(1);
+            ol.Add(0);
+            ol.Delete(1);
+            if (ol.Count() == 6)
+                Assert.AreEqual(6, ol.Count());
+            else
+                Assert.Fail();
 
 
         }

@@ -17,7 +17,7 @@ namespace AlgorithmsDataStructures
         }
     }
 
-    public class OrderedList<T>
+    public class OrderedList<T> 
     {
         public Node<T> head, tail;
         private bool _ascending;
@@ -29,7 +29,7 @@ namespace AlgorithmsDataStructures
             _ascending = asc;
         }
 
-        public int Compare(T v1, T v2) 
+        public int Compare(T v1, T v2)
         {
             int result = 0;
             if (typeof(T) == typeof(String))
@@ -57,15 +57,12 @@ namespace AlgorithmsDataStructures
             }
             else
             {
-                // универсальное сравнение
                 
-                var d1 = v1.ToString();
-                var d2 = v2.ToString();
-
+                // универсальное сравнение
                 if (_ascending == true)
-                    result = d2.CompareTo(d1);
+                    result = ((IComparable)v2).CompareTo(v1);
                 else
-                    result = d1.CompareTo(d2);
+                    result = ((IComparable)v1).CompareTo(v2);
             }
 
             return result;
