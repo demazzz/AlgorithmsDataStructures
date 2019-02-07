@@ -38,9 +38,9 @@ namespace AlgorithmsDataStructures
                 string s1 = v1.ToString();
                 string s2 = v2.ToString();
                 if (s1[0] == ' ') s1 = s1.TrimStart(' ');
-                if (s1[s1.Length - 1] == ' ') s1 = s1.TrimStart(' ');
+                if (s1[s1.Length - 1] == ' ') s1 = s1.TrimEnd(' ');
                 if (s2[0] == ' ') s2 = s2.TrimStart(' ');
-                if (s2[s2.Length - 1] == ' ') s2 = s2.TrimStart(' ');
+                if (s2[s2.Length - 1] == ' ') s2 = s2.TrimEnd(' ');
                 if (_ascending == true)
                 {
                     if (string.Compare(s2, s1, StringComparison.InvariantCulture) < 0) result = -1;
@@ -181,13 +181,13 @@ namespace AlgorithmsDataStructures
                         if (node.next == null)
                         {
                             tail = prevnode;//хвост делаем предыдущим 
-                            return;
+                          
                         }
                         //
                         else
                         {
                             node.next.prev = prevnode;
-                            return;
+                           
                         }
                     }
                     //узел в начале
@@ -196,17 +196,18 @@ namespace AlgorithmsDataStructures
                         if (node.next == null)
                         {
                             head = tail = null;
-                            return;
+                           
                         }
 
                         else
                         {
                             head = head.next;
                             head.prev = null;
-                            return;
+                           
                         }
 
                     }
+                    return;
                 }
                 prevnode = node;
                 node = node.next;
@@ -254,7 +255,7 @@ namespace AlgorithmsDataStructures
             }
         }
 
-        List<Node<T>> GetAll() // выдать все элементы упорядоченного 
+        public List<Node<T>> GetAll() // выдать все элементы упорядоченного 
                                // списка в виде стандартного списка
         {
             List<Node<T>> r = new List<Node<T>>();
