@@ -99,7 +99,41 @@ namespace AlgorithmsDataStructures.Tests
             }
             else Assert.Fail();
         }
+        [TestMethod()]
+        public void GeneralAscTest()
+        {
+            OrderedList<int> one = new OrderedList<int>(true);
+            one.Add(4);
+            one.Add(5);
+            one.Add(2);
+            one.Add(1);
+            one.Add(7);
+            one.Add(3);
+            one.Add(1);
+            one.Add(3);
+            one.Add(8);
+            one.Add(9);
+            List<Node<int>> check = new List<Node<int>>();
+            check = one.GetAll();
+            if (check.Count == one.Count() && check.Count>0)
+            {
+                int value = check[0].value;
+                int actual = 1;
+                for (int i = 1; i < check.Count; i++)
+                {
+                     if (check[i].value>=value)
+                    {
+                        actual++;
+                    }
+                     else
+                    {
+                        Assert.Fail();
+                    }
+                }
+                Assert.AreEqual(check.Count, actual);
+            }
 
+        }
 
         [TestMethod()]
         public void deletemiddleint()
