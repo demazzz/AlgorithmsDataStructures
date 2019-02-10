@@ -61,6 +61,7 @@
     <Compile Include="balance.cs" />
     <Compile Include="Deqeue.cs" />
     <Compile Include="DynArray.cs" />
+    <Compile Include="HashTable.cs" />
     <Compile Include="LinkedDual.cs" />
     <Compile Include="Linked.cs" />
     <Compile Include="MyStrack.cs" />
