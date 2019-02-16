@@ -3,44 +3,50 @@ using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures
 {
-
-    public class HashTable
+    delegate int func(int value);
+    public class HashTableUniversal
     {
         public int size;
         public int step;
-        public string[] slots;
+        int funcNumber;
+        public int[] slots;
+        func[] hashFunc;
 
-        public HashTable(int sz, int stp)
+        public HashTableUniversal(int sz, int stp)
         {
             size = sz;
             step = stp;
-            slots = new string[size];
-            for (int i = 0; i < size; i++) slots[i] = null;
-        }
-
-        public int HashFun(string value)
-        {
-            // всегда возвращает корректный индекс слота
-            int tot = 0;
-            char[] cname;
-            cname = value.ToCharArray();
-            for (int i = 0; i < cname.GetUpperBound(0); i++)
+            slots = new int[size];
+            for (int i = 0; i < size; i++) slots[i] = 0;
+            funcNumber = (new Random()).Next(0, 3);
+            hashFunc = new func[3];
+            hashFunc[0] = value =>
             {
-                tot += 37 * tot + (int)cname[i];
-            }
-            tot = tot % slots.GetUpperBound(0);
-            if (tot < 0)
-                tot += slots.GetUpperBound(0);
-            return tot;
-            //return 0;
+                return (((10 * value + 15) % 28) % sz);
+            };
+            hashFunc[1] = value =>
+            {
+                return (((5 * value + 7) % 11) % sz);
+            };
+            hashFunc[2] = value =>
+            {
+                return (((16 * value + 12) % 37) % sz);
+            };
+
         }
 
-        public int SeekSlot(string value)
+        public int HashFun(int value)
+        {
+            return hashFunc[funcNumber](value);
+            // всегда возвращает корректный индекс слота
+        }
+
+        public int SeekSlot(int value)
         {
             // находит индекс пустого слота для значения, или -1
             int index = HashFun(value);
             int iteration = 0;
-            if (slots[index] == null)
+            if (slots[index] == 0)
             {
                 return index;
             }
@@ -49,7 +55,7 @@ namespace AlgorithmsDataStructures
                 while (index + step < size)
                 {
                     index += step;
-                    if (slots[index] == null)
+                    if (slots[index] == 0)
                     {
                         return index;
                     }
@@ -58,7 +64,7 @@ namespace AlgorithmsDataStructures
                 while (iteration < size)
                 {
 
-                    if (slots[index] == null)
+                    if (slots[index] == 0)
                     {
                         return index;
                     }
@@ -67,7 +73,7 @@ namespace AlgorithmsDataStructures
                         while (index + step < size)
                         {
                             index += step;
-                            if (slots[index] == null)
+                            if (slots[index] == 0)
                             {
                                 return index;
                             }
@@ -81,7 +87,7 @@ namespace AlgorithmsDataStructures
 
         }
 
-        public int Put(string value)
+        public int Put(int value)
         {
             // записываем значение по хэш-функции
             int index = SeekSlot(value);
@@ -97,7 +103,7 @@ namespace AlgorithmsDataStructures
 
         }
 
-        public int Find(string value)
+        public int Find(int value)
         {
             // находит индекс слота со значением, или -1
             int index = HashFun(value);
