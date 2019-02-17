@@ -16,25 +16,28 @@ namespace AlgorithmsDataStructures
         {
             int[] values = new int[100];
             Random rand = new Random();
-            for (int i = 0; i<100; i++)
+            for (int i = 0; i < 100; i++)
             {
-                
-                
-                values[i] = rand.Next(0, 100);
+                values[i] = rand.Next(0, 1000);
                 Thread.Sleep(10);
-
             }
-            
-            HashTableUniversal<int> ttt = new HashTableUniversal<int>(23, 3);
+
+            HashTableUniversal<string> ttt = new HashTableUniversal<string>(23, 3);
             Thread.Sleep(100);
-            HashTableUniversal<int> ttt2 = new HashTableUniversal<int>(23, 3);
+            HashTableUniversal<string> ttt2 = new HashTableUniversal<string>(23, 3);
             Thread.Sleep(100);
-            HashTableUniversal<int> ttt3 = new HashTableUniversal<int>(23, 3);
-            foreach (int item in values)
+            HashTableUniversal<string> ttt3 = new HashTableUniversal<string>(23, 3);
+            int[,] tttres = new int[100, 2];
+            int[,] tttres2 = new int[100, 2];
+            int[,] tttres3 = new int[100, 2];
+            for (int i = 0; i < 100; i++)
             {
-                ttt.Put(item);
-                ttt2.Put(item);
-                ttt3.Put(item);
+                tttres[i, 0] = ttt.Put(values[i].ToString());
+                tttres[i, 1] = values[i];
+                tttres2[i, 0] = ttt2.Put(values[i].ToString());
+                tttres2[i, 1] = values[i];
+                tttres3[i, 0] = ttt3.Put(values[i].ToString());
+                tttres3[i, 1] = values[i];
             }
 
             Console.ReadLine(); // 0 1 2 3 3 5 5 6 8
