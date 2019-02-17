@@ -14,12 +14,22 @@ namespace AlgorithmsDataStructures
     {
         static void Main(string[] args)
         {
-            int[] values = new int[20] {3434, 545, 234, 123456, 56 ,434,1234,645,251,345,342,123,654,34,34,52,45,765,34,48};
-            HashTableUniversal ttt = new HashTableUniversal(19, 2);
+            int[] values = new int[100];
+            Random rand = new Random();
+            for (int i = 0; i<100; i++)
+            {
+                
+                
+                values[i] = rand.Next(0, 100);
+                Thread.Sleep(10);
+
+            }
+            
+            HashTableUniversal<int> ttt = new HashTableUniversal<int>(23, 3);
             Thread.Sleep(100);
-            HashTableUniversal ttt2 = new HashTableUniversal(19, 2);
+            HashTableUniversal<int> ttt2 = new HashTableUniversal<int>(23, 3);
             Thread.Sleep(100);
-            HashTableUniversal ttt3 = new HashTableUniversal(19, 2);
+            HashTableUniversal<int> ttt3 = new HashTableUniversal<int>(23, 3);
             foreach (int item in values)
             {
                 ttt.Put(item);
