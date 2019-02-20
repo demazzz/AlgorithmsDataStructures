@@ -16,13 +16,13 @@ namespace AlgorithmsDataStructures.Tests
         {
             PowerSet<int> iii = new PowerSet<int>();
             iii.Put(10);
-            if (iii.count!= 1) Assert.Fail();
+            if (iii.Size()!= 1) Assert.Fail();
             iii.Put(10);
-            if (iii.count!=1) Assert.Fail();
+            if (iii.Size() != 1) Assert.Fail();
             iii.Put(20);
-            if (iii.count!=2) Assert.Fail();
+            if (iii.Size() != 2) Assert.Fail();
             iii.Remove(10);
-            if (iii.count!=1) Assert.Fail();
+            if (iii.Size() != 1) Assert.Fail();
             if (!iii.Get(20)) Assert.Fail();
         }
         [TestMethod()]
@@ -36,10 +36,10 @@ namespace AlgorithmsDataStructures.Tests
             s1.Put(4);
             s2.Put(1);
             s2.Put(2);
-            s2.Put(4);
+            //s2.Put(4);
             s2.Put(6);
             PowerSet<int> s3 = s1.Intersection(s2);
-            if (s3.count !=3) Assert.Fail();
+            if (s3.Size()!=2) Assert.Fail();
 
         }
         [TestMethod()]
@@ -56,7 +56,7 @@ namespace AlgorithmsDataStructures.Tests
             s2.Put(4);
             s2.Put(6);
             PowerSet<int> s3 = s1.Intersection(s2);
-            if (s3!=null) Assert.Fail();
+            if (s3.Size()!=0) Assert.Fail();
         }
         [TestMethod()]
         public void intersectionTestEmptyOne()
@@ -68,7 +68,7 @@ namespace AlgorithmsDataStructures.Tests
             s2.Put(4);
             s2.Put(6);
             PowerSet<int> s3 = s1.Intersection(s2);
-            if ((s3 != null)) Assert.Fail();
+            if ((s3.Size() != 0)) Assert.Fail();
         }
         [TestMethod()]
         public void intersectionTestEmptyTwo()
@@ -80,7 +80,7 @@ namespace AlgorithmsDataStructures.Tests
             s1.Put(3);
             s1.Put(4);
             PowerSet<int> s3 = s1.Intersection(s2);
-            if ((s3 != null)) Assert.Fail();
+            if ((s3.Size() != 0)) Assert.Fail();
         }
         
         
@@ -99,7 +99,7 @@ namespace AlgorithmsDataStructures.Tests
             s2.Put(4);
             s2.Put(6);
             PowerSet<int> s3 = s1.Difference(s2);
-            if (s3.count != 2) Assert.Fail();
+            if (s3.Size() != 2) Assert.Fail();
         }
         [TestMethod()]
         public void DifferenceEmptryOne()
@@ -111,7 +111,7 @@ namespace AlgorithmsDataStructures.Tests
             s2.Put(4);
             s2.Put(6);
             PowerSet<int> s3 = s1.Difference(s2);
-            if (s3!=null) Assert.Fail();
+            if (s3.Size() != 0) Assert.Fail();
         }
         [TestMethod()]
         public void DifferenceEmptryTwo()
@@ -123,10 +123,26 @@ namespace AlgorithmsDataStructures.Tests
             s1.Put(3);
             s1.Put(4);
             PowerSet<int> s3 = s1.Difference(s2);
-            if (s3.count != 4) Assert.Fail();
+            if (s3.Size() != 4) Assert.Fail();
 
         }
-
+        [TestMethod()]
+        public void SizeTest()
+        {
+            PowerSet<string> s1 = new PowerSet<string>();
+            if (s1.Size() != 0) Assert.Fail();
+            s1.Put("erer");
+            if (s1.Size() != 1) Assert.Fail();
+            s1.Put("erer");
+            if (s1.Size() != 1) Assert.Fail();
+            s1.Put("erere");
+            if (s1.Size() != 2) Assert.Fail();
+            s1.Put("serer");
+            s1.Put("erer");
+            if (s1.Size() != 3) Assert.Fail();
+            s1.Remove("erer");
+            if (s1.Size() != 2) Assert.Fail();
+        }
 
         [TestMethod()]
         public void unionTestEmptyOne()
@@ -138,7 +154,7 @@ namespace AlgorithmsDataStructures.Tests
             s1.Put(3);
             s1.Put(4);
             PowerSet<int> s3 = s1.Union(s2);
-            if (s3.count != 4) Assert.Fail();
+            if (s3.Size() != 4) Assert.Fail();
         }
         [TestMethod()]
         public void unionBothEmpty()
@@ -146,7 +162,7 @@ namespace AlgorithmsDataStructures.Tests
             PowerSet<int> s1 = new PowerSet<int>();
             PowerSet<int> s2 = new PowerSet<int>();
             PowerSet<int> s3 = s1.Union(s2);
-            if (s3!=null) Assert.Fail();
+            if (s3.Size() != 0) Assert.Fail();
         }
         [TestMethod()]
         public void unionTest()
@@ -162,7 +178,7 @@ namespace AlgorithmsDataStructures.Tests
             s2.Put(4);
             s2.Put(6);
             PowerSet<int> s3 = s1.Union(s2);
-            if (s3.count != 5) Assert.Fail();
+            if (s3.Size() != 5) Assert.Fail();
         }
         [TestMethod()]
         public void IsSubsetOneEmpty()

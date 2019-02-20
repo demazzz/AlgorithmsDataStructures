@@ -7,17 +7,14 @@ namespace AlgorithmsDataStructures
     // наследуйте этот класс от HashTable
     // или расширьте его методами из HashTable
     public class PowerSet<T>
-    {
-        public int size;
+    {   
         public List<T> slots;
         public int count;
         public int repeat = 0;
-        int step = 3;
-
+       
         public PowerSet()
         {
             // ваша реализация хранилища
-            size = 16;
             count = 0;
             slots = new List<T>();
         }
@@ -25,8 +22,7 @@ namespace AlgorithmsDataStructures
         public int Size()
         {
             // количество элементов в множестве
-            if (count > 0)
-                return count;
+            if (count > 0) return slots.Count;
             else return 0;
         }
 
@@ -82,7 +78,7 @@ namespace AlgorithmsDataStructures
                 Intersected.Put(item);
             }
             if (Intersected.count > 0) return Intersected;
-            else return null;
+            else return Intersected;
         }
 
         public PowerSet<T> Union(PowerSet<T> set2)
@@ -96,13 +92,13 @@ namespace AlgorithmsDataStructures
                 United.Put(set2.slots[i]);
             }
             if (United.count > 0) return United;
-            else return null;
+            else return United;
         }
 
         public PowerSet<T> Difference(PowerSet<T> set2)
         {
             // разница текущего множества и set2
-            if (count == 0) return null;
+           
             PowerSet<T> differenced = new PowerSet<T>();
             if (set2.count == 0)
                 return this;
@@ -114,7 +110,7 @@ namespace AlgorithmsDataStructures
             }
             if (differenced.count > 0) return differenced;
             else
-            return null;
+            return differenced;
         }
 
         public bool IsSubset(PowerSet<T> set2)
