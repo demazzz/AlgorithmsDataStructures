@@ -66,6 +66,7 @@
     <Compile Include="LinkedDual.cs" />
     <Compile Include="Linked.cs" />
     <Compile Include="MyStrack.cs" />
+    <Compile Include="NativeDirectory.cs" />
     <Compile Include="OrderedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

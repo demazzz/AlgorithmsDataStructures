@@ -22,24 +22,20 @@ namespace AlgorithmsDataStructures
                 Thread.Sleep(10);
             }
 
-            HashTableUniversal<string> ttt = new HashTableUniversal<string>(23, 3);
+            NativeDictionary<string> ttt = new NativeDictionary<string>(23);
             Thread.Sleep(100);
-            HashTableUniversal<string> ttt2 = new HashTableUniversal<string>(23, 3);
+            NativeDictionary<string> ttt2 = new NativeDictionary<string>(23);
             Thread.Sleep(100);
-            HashTableUniversal<string> ttt3 = new HashTableUniversal<string>(23, 3);
-            int[,] tttres = new int[100, 2];
-            int[,] tttres2 = new int[100, 2];
-            int[,] tttres3 = new int[100, 2];
-            for (int i = 0; i < 100; i++)
-            {
-                tttres[i, 0] = ttt.Put(values[i].ToString());
-                tttres[i, 1] = values[i];
-                tttres2[i, 0] = ttt2.Put(values[i].ToString());
-                tttres2[i, 1] = values[i];
-                tttres3[i, 0] = ttt3.Put(values[i].ToString());
-                tttres3[i, 1] = values[i];
-            }
-
+            NativeDictionary<string> ttt3 = new NativeDictionary<string>(23);
+            ttt.Put("aaa", "aaa word");
+            ttt.Put("aab", "aab word");
+            ttt.Put("ac", "ac word");
+            ttt.Put("a", "a word");
+            ttt.Put("a", null);
+            string a = ttt.Get("aaa");
+            string b = ttt.Get("a");
+            string c = ttt.Get("ac");
+            string d = ttt.Get("aaaaaa");
             Console.ReadLine(); // 0 1 2 3 3 5 5 6 8
                        
         }
