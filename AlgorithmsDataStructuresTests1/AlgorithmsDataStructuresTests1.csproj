@@ -53,8 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="HashTableUniversalTests.cs" />
-    <Compile Include="OrderedListTests.cs" />
+    <Compile Include="PowerSetTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

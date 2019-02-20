@@ -68,6 +68,7 @@
     <Compile Include="MyStrack.cs" />
     <Compile Include="NativeDirectory.cs" />
     <Compile Include="OrderedList.cs" />
+    <Compile Include="PowerSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qeues.cs" />

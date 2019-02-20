@@ -4,62 +4,67 @@ using System.Collections.Generic;
 namespace AlgorithmsDataStructures
 {
 
-    public class HashTable
+    public class HashTable<T>
     {
         public int size;
         public int step;
-        public string[] slots;
+        public T[] slots;
 
         public HashTable(int sz, int stp)
         {
             size = sz;
             step = stp;
-            slots = new string[size];
-            for (int i = 0; i < size; i++) slots[i] = null;
+            slots = new T[size];
+            for (int i = 0; i < size; i++) slots[i] = default(T);
         }
 
-        public int HashFun(string value)
+        public int HashFun(T value)
         {
             // всегда возвращает корректный индекс слота
-            int tot = 0;
-            char[] cname;
-            cname = value.ToCharArray();
-            for (int i = 0; i < cname.GetUpperBound(0); i++)
+            int number = 0; for (int i = 0; i < value.ToString().Length; i++)
             {
-                tot += 37 * tot + (int)cname[i];
+                number += Convert.ToInt32(value.ToString()[i]);
             }
-            tot = tot % slots.GetUpperBound(0);
-            if (tot < 0)
-                tot += slots.GetUpperBound(0);
-            return tot;
+            return (15 * number + 79) % 732 % size;
             //return 0;
         }
 
-        public int SeekSlot(string value)
+        public int SeekSlot(T value)
         {
             // находит индекс пустого слота для значения, или -1
             int index = HashFun(value);
             int iteration = 0;
-            if (slots[index] == null)
+            int freeslots = size;
+            if (freeslots==0)
             {
+                T[] _slots = new T[size * 2];
+                _slots = slots;
+                slots = _slots;
+            }
+            if (slots[index].ToString() == default(T).ToString())
+            {
+                freeslots--;
                 return index;
+                
             }
             else
             {
                 while (index + step < size)
                 {
                     index += step;
-                    if (slots[index] == null)
+                    if (slots[index].ToString() == default(T).ToString())
                     {
+                        freeslots--;
                         return index;
                     }
                 }
                 index = iteration;
-                while (iteration < size)
+                while (iteration < step)
                 {
 
-                    if (slots[index] == null)
+                    if (slots[index].ToString() == default(T).ToString())
                     {
+                        freeslots--;
                         return index;
                     }
                     else
@@ -67,8 +72,9 @@ namespace AlgorithmsDataStructures
                         while (index + step < size)
                         {
                             index += step;
-                            if (slots[index] == null)
+                            if (slots[index].ToString() == default(T).ToString())
                             {
+                                freeslots--;
                                 return index;
                             }
                         }
@@ -81,7 +87,7 @@ namespace AlgorithmsDataStructures
 
         }
 
-        public int Put(string value)
+        public int Put(T value)
         {
             // записываем значение по хэш-функции
             int index = SeekSlot(value);
@@ -97,19 +103,19 @@ namespace AlgorithmsDataStructures
 
         }
 
-        public int Find(string value)
+        public int Find(T value)
         {
             // находит индекс слота со значением, или -1
             int index = HashFun(value);
             int iteration = 0;
-            if (slots[index] == value)
+            if (slots[index].ToString() == value.ToString())
                 return index;
             else
             {
                 while (index + step < size)
                 {
                     index += step;
-                    if (slots[index] == value)
+                    if (slots[index].ToString() == value.ToString())
                     {
                         return index;
                     }
@@ -117,7 +123,7 @@ namespace AlgorithmsDataStructures
                 index = iteration;
                 while (iteration < size)
                 {
-                    if (slots[index] == value)
+                    if (slots[index].ToString() == value.ToString())
                     {
                         return index;
                     }
@@ -126,7 +132,7 @@ namespace AlgorithmsDataStructures
                         while (index + step < size)
                         {
                             index += step;
-                            if (slots[index] == value)
+                            if (slots[index].ToString() == value.ToString())
                             {
                                 return index;
                             }
