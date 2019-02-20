@@ -22,24 +22,13 @@ namespace AlgorithmsDataStructures
 
         public int HashFun(string key)
         {
-            
-            // всегда возвращает корректный индекс слота
-            {
-                if (typeof(T) == typeof(string))
-                {
-                    if (key != null)
-                    {
-                        int number = 0; for (int i = 0; i < key.Length; i++)
-                        {
-                            number += Convert.ToInt32(key[i]);
-                        }
-                        return (15 * number + 79) % 732 % size;
-                    }
-                    else return 0;
-                }
-                else return (15 * Convert.ToInt32(key) + 79) % 732 % size;
-            };
 
+            // всегда возвращает корректный индекс слота
+            int number = 0; for (int i = 0; i < key.Length; i++)
+            {
+                number += Convert.ToInt32(key[i]);
+            }
+            return (15 * number + 79) % 732 % size;
         }
 
         public bool IsKey(string key)

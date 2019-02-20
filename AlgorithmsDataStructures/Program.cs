@@ -22,20 +22,17 @@ namespace AlgorithmsDataStructures
                 Thread.Sleep(10);
             }
 
-            NativeDictionary<string> ttt = new NativeDictionary<string>(23);
-            Thread.Sleep(100);
-            NativeDictionary<string> ttt2 = new NativeDictionary<string>(23);
-            Thread.Sleep(100);
-            NativeDictionary<string> ttt3 = new NativeDictionary<string>(23);
-            ttt.Put("aaa", "aaa word");
-            ttt.Put("aab", "aab word");
-            ttt.Put("ac", "ac word");
-            ttt.Put("a", "a word");
-            ttt.Put("a", null);
-            string a = ttt.Get("aaa");
-            string b = ttt.Get("a");
-            string c = ttt.Get("ac");
-            string d = ttt.Get("aaaaaa");
+            NativeDictionary<int> ttt = new NativeDictionary<int>(23);
+            
+            ttt.Put("1", 12);
+            ttt.Put("aab", 122);
+            ttt.Put("ac", 132);
+            ttt.Put("a", 14);
+            ttt.Put("a", 0);
+            int a = ttt.Get("1");
+            int b = ttt.Get("aab");
+            int c = ttt.Get("a");
+            int d = ttt.Get("aaaaaa");
             Console.ReadLine(); // 0 1 2 3 3 5 5 6 8
                        
         }
