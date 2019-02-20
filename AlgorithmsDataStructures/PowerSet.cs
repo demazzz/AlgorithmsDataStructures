@@ -25,8 +25,8 @@ namespace AlgorithmsDataStructures
         public int Size()
         {
             // количество элементов в множестве
-            if (slots.Count > 0)
-                return slots.Count;
+            if (count > 0)
+                return count;
             else return 0;
         }
 
