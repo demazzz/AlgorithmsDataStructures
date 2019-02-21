@@ -14,20 +14,16 @@ namespace AlgorithmsDataStructures
     {
         static void Main(string[] args)
         {
-           
 
+            PowerSet<string> aaa = new PowerSet<string>();
+
+            PowerSet<string> bbb = new PowerSet<string>();
+            aaa.Put("1");
+            aaa.Put("2");
+            bbb.Put(null);
+            var ccc= aaa.Union(bbb);
             PowerSet<int> ttt = new PowerSet<int>();
-            Random rand = new Random();
-            for(int i = 0;i<100; i++)
-            {
-                ttt.Put(rand.Next(0,100));
-            }
-
-            bool a = ttt.Get(12);
-            bool b = ttt.Get(14);
-            bool c = ttt.Get(134);
-            bool d = ttt.Get(156);
-            Console.ReadLine(); // 0 1 2 3 3 5 5 6 8
+            
                        
         }
     }

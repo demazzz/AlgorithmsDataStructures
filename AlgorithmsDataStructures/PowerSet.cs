@@ -85,10 +85,13 @@ namespace AlgorithmsDataStructures
         {
             // объединение текущего множества и set2
             PowerSet<T> United = new PowerSet<T>();
-            United = this;
+            ///////United = this;/////
+            foreach(T item in slots)
+            {
+                United.Put(item);
+            }
             for (int i = 0; i < set2.count; i++)
             {
-
                 United.Put(set2.slots[i]);
             }
             if (United.count > 0) return United;
@@ -101,7 +104,13 @@ namespace AlgorithmsDataStructures
            
             PowerSet<T> differenced = new PowerSet<T>();
             if (set2.count == 0)
-                return this;
+            ///return this;
+            {
+                foreach (T item in slots)
+                {
+                    differenced.Put(item);
+                }
+            }
             
             foreach(T item in this.slots)
             {

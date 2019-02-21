@@ -157,6 +157,18 @@ namespace AlgorithmsDataStructures.Tests
             if (s3.Size() != 4) Assert.Fail();
         }
         [TestMethod()]
+        public void unionTestEmptyTwo()
+        {
+            PowerSet<int> s1 = new PowerSet<int>();
+            PowerSet<int> s2 = new PowerSet<int>();
+            s2.Put(1);
+            s2.Put(2);
+            s2.Put(4);
+            s2.Put(6);
+            PowerSet<int> s3 = s1.Union(s2);
+            if (s3.Size() != 4) Assert.Fail();
+        }
+        [TestMethod()]
         public void unionBothEmpty()
         {
             PowerSet<int> s1 = new PowerSet<int>();
