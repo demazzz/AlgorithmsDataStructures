@@ -214,7 +214,7 @@ namespace AlgorithmsDataStructures.Tests
             s1.Put(3);
             s1.Put(4);
             bool res = s1.IsSubset(s2);
-            if (res) Assert.Fail();
+            if (!res) Assert.Fail();
         }
         [TestMethod()]
         public void IsSubsetBothEmpty()
@@ -282,6 +282,7 @@ namespace AlgorithmsDataStructures.Tests
             s1.Put(3);
             s1.Put(4);
             s1.Put(5);
+
             s2.Put(1);
             s2.Put(2);
 

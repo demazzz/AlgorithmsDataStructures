@@ -127,7 +127,7 @@ namespace AlgorithmsDataStructures
             // возвращает true, если set2 есть
             // подмножество текущего множества,
             // иначе false
-            if (this.count == 0 || set2.count == 0) return false;
+            if (this.count == 0) return false;
             int count = set2.count;
             for (int i=0;i<set2.count;i++)
             {
