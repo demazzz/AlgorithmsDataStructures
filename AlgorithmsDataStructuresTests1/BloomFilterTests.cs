@@ -1,20 +1,19 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AlgorithmsDataStructures;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 
-
-
-namespace AlgorithmsDataStructures
+namespace AlgorithmsDataStructures.Tests
 {
-    class Program
+    [TestClass()]
+    public class BloomFilterTests
     {
-        static void Main(string[] args)
+        [TestMethod()]
+        public void BloomFilterTest()
         {
-
             List<string> list = new List<string>();
             string str = "0123456789";
             list.Add(str);
@@ -27,11 +26,12 @@ namespace AlgorithmsDataStructures
             filer.Add("0123456789");
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(filer.IsValue(list[i]));
+               
+                if (filer.IsValue(list[i]))
+                {
+                    Assert.Fail();
+                }
             }
-            Console.ReadLine();
-
         }
     }
-
 }

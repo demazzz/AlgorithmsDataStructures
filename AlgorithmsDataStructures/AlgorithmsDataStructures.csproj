@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="balance.cs" />
+    <Compile Include="BlomFilter.cs" />
     <Compile Include="Deqeue.cs" />
     <Compile Include="DynArray.cs" />
     <Compile Include="HashTable.cs" />
