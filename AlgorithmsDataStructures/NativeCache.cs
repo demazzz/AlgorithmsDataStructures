@@ -22,14 +22,14 @@ namespace AlgorithmsDataStructures
             values = new T[size];
             hits = new int[size];
         }
-        public int SeekSlot(string value)
+        public int SeekSlot(string value, string ToCompare)
         {
             // находит индекс пустого слота для значения, или -1
             // метод последовательных проб
             int index = HashFun(value);
             int iteration = 0;
                      
-            if (slots[index] == null)
+            if (slots[index] == ToCompare)
             {
                 return index;
             }
@@ -39,7 +39,7 @@ namespace AlgorithmsDataStructures
                 while (index + step < size)
                 {
                     index += step;
-                    if (slots[index] == null)
+                    if (slots[index] == ToCompare)
                     {
                        return index;
                     }
@@ -48,7 +48,7 @@ namespace AlgorithmsDataStructures
                 while (iteration < step)
                 {
                     
-                    if (slots[index] == null)
+                    if (slots[index] == ToCompare)
                     {
                         return index;
                     }
@@ -57,7 +57,7 @@ namespace AlgorithmsDataStructures
                         while (index + step < size)
                         {
                             index += step;
-                            if (slots[index] == null)
+                            if (slots[index] == ToCompare)
                             {
 
                                 return index;
@@ -93,7 +93,7 @@ namespace AlgorithmsDataStructures
             { 
                 if (occupied<size) //проверка на заполненность кэша
                 {
-                    int index = SeekSlot(key);  //поиск индекса для записи согласно методу последовательных проб
+                    int index = SeekSlot(key, null);  //поиск индекса для записи согласно методу последовательных проб
                     occupied++;                 //счетчик заполненных ячеек
                     slots[index] = key;         //записываем key в массив ключей
                     values[index] = value;      // записываем value в массив значений по тому же индексу
@@ -112,59 +112,14 @@ namespace AlgorithmsDataStructures
         {
             // возвращает value для key, 
             // или null если ключ не найден
-            {
-                int index = HashFun(key); //получаем индекс от хэш функции
-                int iteration = 0; //счётчик итераций
-                if (slots[index] == key) //проверяем наличие по индексу от хэш функции
-                {
-                    hits[index]++; // увеличиваем счетчик запросов по данному индексу
-                    return values[index]; //возвращаем значение 
-                }
-                ///алгоритм поиска правильного индекса - метод последовательных проб
-                ///если текущее значение ключа не исходное, записанное в данный индекс
-                ///ищется в следующей ячейки согласно заданному шагу (3) 
-                ///например: индекс хэш функции - 2, длина массива - 10
-                ///тогда: поиск будет 2, 5, 8
-                ///после чего начинаем искать с нулевого элемента: 0, 3, 6, 9
-                ///далее начиная с 1: 1, 4, 7
-                else
-                {
-                    while (index + step < size)
-                    {
-                        index += step;
-                        if (slots[index] == key)
-                        {
-                            hits[index]++;
-                            return values[index];
-                        }
-                    }
-                    index = iteration;
-                    while (iteration < step)
-                    {
-                        if (slots[index] == key)
-                        {
-                            hits[index]++;
-                            return values[index];
-                        }
-                        else
-                        {
-                            while (index + step < size)
-                            {
-                                index += step;
-                                if (slots[index] == key)
-                                {
-                                    hits[index]++;
-                                    return values[index];
-                                }
-                            }
-                            iteration++;
-                            index = iteration;
-                        }
-                    }
 
-                }
+            int index = SeekSlot(key,key); //получаем индекс от хэш функции
+            if (index != -1) //проверяем наличие по индексу от хэш функции
+            {
+                hits[index]++; // увеличиваем счетчик запросов по данному индексу
+                return values[index]; //возвращаем значение 
             }
-            return default(T);
+            else return default(T);
         }
 
     }
