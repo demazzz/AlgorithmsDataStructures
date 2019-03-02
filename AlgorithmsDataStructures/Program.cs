@@ -15,22 +15,38 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
 
-            List<string> list = new List<string>();
-            string str = "0123456789";
-            list.Add(str);
-            for (int i = 0; i < 9; i++)
+            NativeCache<int> cache = new NativeCache<int>(11);
+            int[] arr = new int[11] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            string[] arrS = new string[11] { "a", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K" };
+            for (int i =0;i<11;i++)
             {
-                str = str.Substring(1, str.Length - 1) + str.Substring(0, 1);
-                list.Add(str);
+                cache.Put(arrS[i], arr[i]);
             }
-            BloomFilter filer = new BloomFilter(32);
-            filer.Add("0123456789");
+            Random RAND = new Random();
+            for (int i=0;i<50;i++)
+            {
+                cache.Get(arrS[RAND.Next(0, 11)]);
+            }
+            for (int i = 0; i < 11; i++)
+            {
+                Console.WriteLine("Value {0} has {1} hits", cache.values[i],cache.hits[i]);
+            }
+            cache.Put("AA", 100);
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(filer.IsValue(list[i]));
+                cache.Get("AA");
+            }
+            cache.Put("CC", 300);
+            for (int i = 0; i < 10; i++)
+            {
+                cache.Get("CC");
+            }
+            cache.Put("BB", 200);
+            for (int i = 0; i < 11; i++)
+            {
+                Console.WriteLine("Value {0} has {1} hits", cache.values[i], cache.hits[i]);
             }
             Console.ReadLine();
-
         }
     }
 

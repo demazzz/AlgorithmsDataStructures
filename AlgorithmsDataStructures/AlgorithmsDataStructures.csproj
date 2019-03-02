@@ -67,6 +67,7 @@
     <Compile Include="LinkedDual.cs" />
     <Compile Include="Linked.cs" />
     <Compile Include="MyStrack.cs" />
+    <Compile Include="NativeCache.cs" />
     <Compile Include="NativeDirectory.cs" />
     <Compile Include="OrderedList.cs" />
     <Compile Include="PowerSet.cs" />
