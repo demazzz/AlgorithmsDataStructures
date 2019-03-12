@@ -40,15 +40,21 @@ namespace AlgorithmsDataStructures2
         public void DeleteNode(SimpleTreeNode<T> NodeToDelete)
         {
             // ваш код удаления существующего узла NodeToDelete
-            NodeToDelete.Children = null;
-            for (int i =0;i<NodeToDelete.Parent.Children.Count; i++)
+            
+            if (NodeToDelete.Parent != null || NodeToDelete == null)
             {
-                if (Convert.ToString(NodeToDelete.NodeValue) == Convert.ToString(NodeToDelete.Parent.Children[i].NodeValue))
+                if (NodeToDelete.Children !=null)
+                for (int i = 0; i < NodeToDelete.Parent.Children.Count; i++)
                 {
-                    NodeToDelete.Parent.Children.RemoveAt(i);
+                    if (Convert.ToString(NodeToDelete.NodeValue) == Convert.ToString(NodeToDelete.Parent.Children[i].NodeValue))
+                    {
+                        NodeToDelete.Parent.Children.RemoveAt(i);
+                    }
                 }
+                NodeToDelete.Children = null;
+                NodeToDelete.Parent = null;
             }
-            NodeToDelete.Parent = null;
+            else return;
         }
 
         public List<SimpleTreeNode<T>> GetAllNodes()
