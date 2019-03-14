@@ -94,7 +94,8 @@ namespace AlgorithmsDataStructures2
                     }
 
                 Node = stack.Pop();
-                if (Convert.ToString(Node.NodeValue) == Convert.ToString(val))
+                if (Comparer<T>.Default.Compare(Node.NodeValue, val) == 0)
+                    
                 returnList.Add(Node);
             }
             return returnList;;
@@ -104,9 +105,10 @@ namespace AlgorithmsDataStructures2
         {
             // ваш код перемещения узла вместе с его поддеревом -- 
             // в качестве дочернего для узла NewParent
-            AddChild(NewParent, OriginalNode);
-            OriginalNode.Parent = NewParent;
-            OriginalNode.Children = null;
+            SimpleTreeNode<T> node = OriginalNode;
+            OriginalNode.Parent.Children.Remove(OriginalNode);
+            AddChild(NewParent, node);
+             
         }
 
         public int Count()
