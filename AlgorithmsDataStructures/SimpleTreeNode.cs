@@ -41,10 +41,10 @@ namespace AlgorithmsDataStructures2
         {
             // ваш код удаления существующего узла NodeToDelete
             
-            if (NodeToDelete.Parent != null || NodeToDelete == null)
+            if (NodeToDelete.Parent != null)
             {
-                if (NodeToDelete.Children !=null)
                 NodeToDelete.Parent.Children.Remove(NodeToDelete);
+                if (NodeToDelete.Parent.Children.Count == 0) NodeToDelete.Parent.Children = null;
                 NodeToDelete.Children = null;
                 NodeToDelete.Parent = null;
             }
