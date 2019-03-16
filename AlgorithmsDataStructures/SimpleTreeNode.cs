@@ -44,13 +44,7 @@ namespace AlgorithmsDataStructures2
             if (NodeToDelete.Parent != null || NodeToDelete == null)
             {
                 if (NodeToDelete.Children !=null)
-                for (int i = 0; i < NodeToDelete.Parent.Children.Count; i++)
-                {
-                    if (Convert.ToString(NodeToDelete.NodeValue) == Convert.ToString(NodeToDelete.Parent.Children[i].NodeValue))
-                    {
-                        NodeToDelete.Parent.Children.RemoveAt(i);
-                    }
-                }
+                NodeToDelete.Parent.Children.Remove(NodeToDelete);
                 NodeToDelete.Children = null;
                 NodeToDelete.Parent = null;
             }
@@ -105,9 +99,12 @@ namespace AlgorithmsDataStructures2
         {
             // ваш код перемещения узла вместе с его поддеревом -- 
             // в качестве дочернего для узла NewParent
-            SimpleTreeNode<T> node = OriginalNode;
-            OriginalNode.Parent.Children.Remove(OriginalNode);
-            AddChild(NewParent, node);
+            if (OriginalNode != NewParent)
+            {
+                SimpleTreeNode<T> node = OriginalNode;
+                OriginalNode.Parent.Children.Remove(OriginalNode);
+                AddChild(NewParent, node);
+            }
              
         }
 
