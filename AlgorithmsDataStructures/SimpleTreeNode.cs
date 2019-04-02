@@ -148,6 +148,58 @@ namespace AlgorithmsDataStructures2
             }
             return count;
         }
+        public void DeepAllNodes(int variant,T val)
+        {
+            if(variant==0)
+            {
+
+            }
+            else if (variant==1)
+            {
+
+            }
+            else if (variant==2)
+            {
+                preorder(Root, val);
+            }  
+
+        }
+        public SimpleTreeNode<T> preorder(SimpleTreeNode<T> Node, T val)
+        {
+            if (Comparer<T>.Default.Compare(Node.NodeValue, val) == 0)
+            {
+                return Node;
+            }
+           else if (Node.Children.Count>0)
+            {
+                return preorder(Node.Children[0], val);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        private void CLR(SimpleTreeNode<T> node, ref string s, bool detailed)
+        {
+            /*
+             Аргументы метода:
+             1. TreeNode node - текущий "элемент дерева" (ref  передача по ссылке)       
+             2. ref string s - строка, в которой накапливается результат (ref - передача по ссылке)
+            */
+            if (node != null)
+            {
+                if (detailed)
+                    s += "    получили значение " + node.NodeValue.ToString() + Environment.NewLine;
+                else
+                    s += node.NodeValue.ToString() + " "; // запомнить текущее значение
+                if (detailed) s += "    обходим левое поддерево" + Environment.NewLine;
+                CLR(node.Children[0], ref s, detailed); // обойти левое поддерево
+                if (detailed) s += "    обходим правое поддерево" + Environment.NewLine;
+                CLR(node.Children[1], ref s, detailed); // обойти правое поддерево
+            }
+            else if (detailed) s += "    значение отсутствует - null" + Environment.NewLine;
+        }
+
 
     }
 
