@@ -334,5 +334,30 @@ namespace AlgorithmsDataStructures2
             return false; // если узел не найден
         }
 
+        public int Count()
+        {
+            if (Root != null)
+            {
+                int count = 1;
+                Stack<BSTNode<T>> stack = new Stack<BSTNode<T>>();
+                BSTNode<T> Node = Root;
+                if (Node.LeftChild != null)
+                    stack.Push(Node.LeftChild);
+                if (Node.RightChild != null)
+                    stack.Push(Node.RightChild);
+                while(stack.Count!=0)
+                {
+                    Node = stack.Pop();
+                    count++;
+                    if (Node.LeftChild != null)
+                        stack.Push(Node.LeftChild);
+                    if (Node.RightChild != null)
+                        stack.Push(Node.RightChild);
+                }
+                return count;
+            }
+            else
+            return 0; // количество узлов в дереве
+        }
     }
 }

@@ -122,6 +122,8 @@ namespace AlgorithmsDataStructures2.Tests
             tree.AddKeyValue(N.NodeKey, N.NodeValue);
             tree.AddKeyValue(O.NodeKey, O.NodeValue);
             tree.AddKeyValue(P.NodeKey, P.NodeValue);
+            int c1 = tree.Count();
+            if (c1 != 15) Assert.Fail();
             B = tree.FindNodeByKey(B.NodeKey).Node;
             C = tree.FindNodeByKey(C.NodeKey).Node;
             D = tree.FindNodeByKey(D.NodeKey).Node;
@@ -181,6 +183,7 @@ namespace AlgorithmsDataStructures2.Tests
             tree.AddKeyValue(N.NodeKey, N.NodeValue);
             tree.AddKeyValue(O.NodeKey, O.NodeValue);
             tree.AddKeyValue(P.NodeKey, P.NodeValue);
+            if (tree.Count() != 14) Assert.Fail();
             B = tree.FindNodeByKey(B.NodeKey).Node;
             C = tree.FindNodeByKey(C.NodeKey).Node;
             D = tree.FindNodeByKey(D.NodeKey).Node;
@@ -197,9 +200,11 @@ namespace AlgorithmsDataStructures2.Tests
             P = tree.FindNodeByKey(P.NodeKey).Node;
             tree.DeleteNodeByKey(D.NodeKey);
             if (A.LeftChild.LeftChild.NodeKey != 3) Assert.Fail();
+            if (tree.Count() != 13) Assert.Fail();
             tree.DeleteNodeByKey(M.NodeKey);
             if (A.RightChild.LeftChild.LeftChild != null) Assert.Fail();
             tree.DeleteNodeByKey(C.NodeKey);
+            if (tree.Count() != 11) Assert.Fail();
             if (A.RightChild.NodeKey != 13) Assert.Fail();
             tree.FindNodeByKey(12);
 
