@@ -359,5 +359,79 @@ namespace AlgorithmsDataStructures2
             else
             return 0; // количество узлов в дереве
         }
+
+        public List<BSTNode<T>> WideAllNodes()
+        {
+            List<BSTNode<T>> listnodes = new List<BSTNode<T>>();
+            BSTNode<T> node;
+            Queue<BSTNode<T>> q = new Queue<BSTNode<T>>();
+            q.Enqueue(Root);
+            while (q.Count!=0)
+            {
+                node = q.Dequeue();
+                listnodes.Add(node);
+                if (node.LeftChild!=null)
+                {
+                    q.Enqueue(node.LeftChild);
+                }
+                if (node.RightChild!=null)
+                {
+                    q.Enqueue(node.RightChild);
+                }
+            }
+            return listnodes;
+        }
+      
+        public List<BSTNode<T>> DeepAllNodes(int order)
+        {
+            List<BSTNode<T>> list = new List<BSTNode<T>>();
+
+            if (order == 0)
+            {
+                inorder(Root, ref list);
+            }
+            else if (order==1)
+            {
+                postorder(Root, ref list);
+            }
+            else if (order==2)
+            {
+                preorder(Root, ref list);
+            }
+            
+            else
+            {
+                return null;
+            }
+            return list;
+        }
+
+        private void inorder(BSTNode<T> Node, ref List<BSTNode<T>> List) //left-node-right
+        {
+            if (Node != null)
+            {
+                inorder(Node.LeftChild, ref List);
+                List.Add(Node);
+                inorder(Node.RightChild, ref List);
+            }
+        }
+        
+        private void postorder(BSTNode<T> Node, ref List<BSTNode<T>> List) //left-right-node
+        {
+            if (Node != null)
+            {
+                postorder(Node.LeftChild, ref List);
+                postorder(Node.RightChild, ref List);
+                List.Add(Node);
+            }
+        }
+        private void preorder(BSTNode<T> Node, ref List<BSTNode<T>> List) //node-left-right
+        {
+            List.Add(Node);
+            if (Node.LeftChild != null)
+                preorder(Node.LeftChild, ref List);
+            if (Node.RightChild != null)
+                preorder(Node.RightChild, ref List);
+        }
     }
 }
