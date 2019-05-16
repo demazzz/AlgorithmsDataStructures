@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aBST.cs" />
     <Compile Include="balance.cs" />
     <Compile Include="BlomFilter.cs" />
     <Compile Include="BSTNode.cs" />
