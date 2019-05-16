@@ -10,7 +10,7 @@ namespace AlgorithmsDataStructures2
         public aBST(int depth)
         {
             // правильно рассчитайте размер массива для дерева глубины depth:
-            int tree_size = Convert.ToInt32(Math.Pow(2,depth))-1;
+            int tree_size = Convert.ToInt32(Math.Pow(2,depth+1))-1;
             Tree = new int?[tree_size];
             for (int i = 0; i < tree_size; i++) Tree[i] = null;
         }

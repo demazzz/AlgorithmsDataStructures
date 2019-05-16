@@ -16,7 +16,7 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
 
-            aBST aBST = new aBST(4);
+            aBST aBST = new aBST(3);
             int[] keys = new int[10] { 50, 25, 75, 37, 62, 84, 31, 43, 55, 92 };
             foreach(int key in keys)
             {
