@@ -56,8 +56,8 @@ namespace AlgorithmsDataStructures2
                 int i = Convert.ToInt32(k);
                 if (i < 0 && i < Tree.Length)
                 {
-
-                    Tree[i * -1] = key;
+                    i = i * -1;
+                    Tree[i] = key;
                     
                 }
                 if (i==0)
