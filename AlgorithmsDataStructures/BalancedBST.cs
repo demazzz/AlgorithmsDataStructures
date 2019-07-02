@@ -11,10 +11,9 @@ namespace AlgorithmsDataStructures2
             if (a.Length > 1)
             {
                 int lenght = Convert.ToInt32(Math.Pow(2, ((Math.Ceiling(Math.Log(a.Length) / Math.Log(2))))) - 1); //calculate the lenght
-                int[] result = new int[lenght];
                 int[] final = new int[lenght]; //build return array
                 Array.Sort(a); //ascending sort
-                final = FindElements(a, result, 0,lenght);
+                final = FindElements(a, final, 0,lenght);
                 return final;
             }
             else return null;
