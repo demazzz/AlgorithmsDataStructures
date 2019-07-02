@@ -34,7 +34,13 @@ namespace AlgorithmsDataStructures2.Tests
         [TestMethod()]
         public void FindKeyIndexTest()
         {
-            Assert.Fail();
+            aBST aBST = new aBST(3);
+            int[] ff = new int[10] { 25, 31, 37, 43, 50, 55, 62, 75, 84, 92 };
+            foreach(int aa in ff)
+            {
+                aBST.AddKey(aa); 
+            }
+            if (aBST.FindKeyIndex(50) == -1) Assert.Fail();
         }
 
         [TestMethod()]

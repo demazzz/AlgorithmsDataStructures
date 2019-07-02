@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="aBST.cs" />
     <Compile Include="balance.cs" />
+    <Compile Include="BalancedBST.cs" />
     <Compile Include="BlomFilter.cs" />
     <Compile Include="BSTNode.cs" />
     <Compile Include="Deqeue.cs" />
