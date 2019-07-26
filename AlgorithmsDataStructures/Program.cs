@@ -16,9 +16,12 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
 
-            int[] aa = new int[] { 15,14,13,12,11,10,9,8,7,6,5,4,3,2,1 };
-            var bb = BalancedBST.GenerateBBSTArray(aa);
-
+            int[] aa = new int[] { 1,6,7,8,9};
+            var bb = new BalancedBST();
+            var vv = BalancedBST2.GenerateBBSTArray(aa);
+            bb.CreateFromArray(aa);
+            bb.GenerateTree();
+            var bal = bb.IsBalanced(bb.Root);
             Console.ReadLine();
 
         }
