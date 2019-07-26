@@ -131,6 +131,7 @@ namespace AlgorithmsDataStructures2
 
         public bool IsBalanced(BSTNode root_node)
         {
+            if (root_node == null) return true;
             if (root_node.LeftChild!=null && root_node.RightChild!=null)
             {
                 if (root_node.LeftChild.NodeKey==0 && root_node.RightChild.NodeKey==0)
@@ -152,12 +153,28 @@ namespace AlgorithmsDataStructures2
             else if (root_node.LeftChild!=null && root_node.RightChild==null)
             {
                 if (root_node.LeftChild.NodeKey < root_node.NodeKey)
-                    return true;
+                {
+                    int lh = height(root_node.LeftChild);
+                    int rh = height(root_node.RightChild);
+                    if (Math.Abs(lh - rh) <= 1 && IsBalanced(root_node.LeftChild)
+                                && IsBalanced(root_node.RightChild))
+                    {
+                        return true;
+                    }
+                }
             }
             else if (root_node.RightChild != null && root_node.LeftChild == null)
             {
                 if (root_node.RightChild.NodeKey >= root_node.NodeKey)
-                    return true;
+                {
+                    int lh = height(root_node.LeftChild);
+                    int rh = height(root_node.RightChild);
+                    if (Math.Abs(lh - rh) <= 1 && IsBalanced(root_node.LeftChild)
+                                && IsBalanced(root_node.RightChild))
+                    {
+                        return true;
+                    }
+                }
             }
             else if (root_node.RightChild==null && root_node.LeftChild==null)
             {
