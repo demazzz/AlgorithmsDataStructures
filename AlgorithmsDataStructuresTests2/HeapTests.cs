@@ -30,7 +30,7 @@ namespace AlgorithmsDataStructures2.Tests
             heap.Add(7);
             heap.Add(244);
             if (heap.GetMax() != 124) Assert.Fail();
-            if (heap.HeapSize != 16) Assert.Fail();
+            if (heap.HeapSize != 15) Assert.Fail();
         }
 
         [TestMethod()]
@@ -46,6 +46,18 @@ namespace AlgorithmsDataStructures2.Tests
             if (heap1.HeapArray != null) Assert.Fail();
             heap1.MakeHeap(arr1, -1);
             if (heap1.HeapArray != null) Assert.Fail();
+            heap1.MakeHeap(arr1, 1);
+            if (heap1.HeapArray.Length != 1) Assert.Fail();
+            heap1.MakeHeap(arr1, 2);
+            if (heap1.HeapArray.Length != 3) Assert.Fail();
+            
+            Heap heap2 = new Heap();
+            heap2.MakeHeap(null, 0);
+            if (heap2.HeapArray != null) Assert.Fail();
+
+            Heap heap3 = new Heap();
+            heap3.MakeHeap(null, 2);
+            if (heap2.HeapArray != null) Assert.Fail();
         }
 
     }

@@ -16,15 +16,14 @@ namespace AlgorithmsDataStructures2
             //создаём массив кучи HeapArray из заданного
             // размер массива выбираем на основе глубины depth
             // ...
-            //int lenght = Convert.ToInt32(Math.Pow(2, ((Math.Ceiling(Math.Log(depth) / Math.Log(2))))) - 1); //calculate the lenght
-
-            if (depth > 0)
+            
+            if (depth > 0 && a != null)
             {
-                maxSize = Convert.ToInt32(Math.Pow(2, depth) - 1) + 1;
+                maxSize = Convert.ToInt32(Math.Pow(2, depth) - 1);
                 HeapArray = new int[maxSize];
                 HeapSize = 0;
-                //for (int i = 0; i < HeapArray.Length; i++)
-                //    HeapArray[i] = -65000;
+                Array.Sort(a);
+                Array.Reverse(a);
                 foreach (int item in a)
                 {
                     Add(item);
@@ -49,10 +48,6 @@ namespace AlgorithmsDataStructures2
 
         private bool checkIfFull()
             {
-            //for (int i=0; i<HeapArray.Length;i++)
-            //if (HeapArray[i]==-65000) return true;
-            //return false;
-
             if (HeapSize < maxSize) return true;
             else return false;
             }

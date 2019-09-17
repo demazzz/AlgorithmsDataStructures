@@ -20,8 +20,11 @@ namespace AlgorithmsDataStructures
            int n = arr.Length;  
            Heap heap = new Heap();
 
-           heap.MakeHeap(arr,3);
-           Console.ReadLine();
+            heap.MakeHeap(arr,3);
+            heap.MakeHeap(arr, 1);
+            heap.MakeHeap(arr, 2);
+
+            Console.ReadLine();
 
         }
 
