@@ -41,10 +41,11 @@ namespace AlgorithmsDataStructures2
                 {
 
                 int toreturn = HeapArray[0];
-                HeapArray[0] = 0;
-                for (int i1 = maxSize / 2; i1 >= 0; i1--)
+                HeapArray[0] = HeapArray[HeapSize-1];
+                HeapArray[HeapSize-1] = 0;
+                //for (int i1 = HeapSize / 2; i1 >= 0; i1--)
                 {
-                    heapify(i1);
+                    heapify(0);
                 }
                 HeapSize--;
                 return toreturn;
@@ -76,7 +77,7 @@ namespace AlgorithmsDataStructures2
                     i = parent;
                     parent = (i - 1) / 2;
                 }
-                for (int i1 = maxSize / 2; i1 >= 0; i1--)
+                for (int i1 = HeapSize / 2; i1 >= 0; i1--)
                 {
                     heapify(i1);
                 }
@@ -100,12 +101,12 @@ namespace AlgorithmsDataStructures2
                 rightChild = 2 * i + 2;
                 largestChild = i;
 
-                if (leftChild < HeapArray.Length && HeapArray[leftChild] > HeapArray[largestChild])
+                if (leftChild <= HeapSize && HeapArray[leftChild] > HeapArray[largestChild])
                 {
                     largestChild = leftChild;
                 }
 
-                if (rightChild < HeapArray.Length && HeapArray[rightChild] > HeapArray[largestChild])
+                if (rightChild <= HeapSize && HeapArray[rightChild] > HeapArray[largestChild])
                 {
                     largestChild = rightChild;
                 }
