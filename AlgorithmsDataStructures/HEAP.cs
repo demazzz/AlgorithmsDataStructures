@@ -18,18 +18,19 @@ namespace AlgorithmsDataStructures2
             // ...
             //int lenght = Convert.ToInt32(Math.Pow(2, ((Math.Ceiling(Math.Log(depth) / Math.Log(2))))) - 1); //calculate the lenght
 
-
-            maxSize = Convert.ToInt32( Math.Pow(2,depth)-1);
-            HeapArray = new int[maxSize];
-            HeapSize = 0;
-            //for (int i = 0; i < HeapArray.Length; i++)
-            //    HeapArray[i] = -65000;
-            foreach (int item in a)
+            if (depth > 0)
             {
-                Add(item);
-            }
+                maxSize = Convert.ToInt32(Math.Pow(2, depth) - 1) + 1;
+                HeapArray = new int[maxSize];
+                HeapSize = 0;
+                //for (int i = 0; i < HeapArray.Length; i++)
+                //    HeapArray[i] = -65000;
+                foreach (int item in a)
+                {
+                    Add(item);
+                }
 
-           
+            }
 
         }
 
