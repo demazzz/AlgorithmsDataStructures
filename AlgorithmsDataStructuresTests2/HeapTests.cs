@@ -17,7 +17,7 @@ namespace AlgorithmsDataStructures2.Tests
             int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
             int n = arr.Length;
             Heap heap = new Heap();
-            heap.MakeHeap(arr, 4);
+            heap.MakeHeap(arr, 3);
 
             if (heap.GetMax() != 17) Assert.Fail();
             heap.Add(20);
@@ -26,9 +26,9 @@ namespace AlgorithmsDataStructures2.Tests
             heap.Add(25);
             heap.Add(124);
             if (heap.GetMax() != 124) Assert.Fail();
-            heap.Add(2);
-            heap.Add(7);
-            heap.Add(244);
+            if (!heap.Add(2)) Assert.Fail();
+            if (heap.Add(7)) Assert.Fail();
+            if (heap.Add(244)) Assert.Fail();
             if (heap.GetMax() != 124) Assert.Fail();
             if (heap.HeapSize != 15) Assert.Fail();
         }

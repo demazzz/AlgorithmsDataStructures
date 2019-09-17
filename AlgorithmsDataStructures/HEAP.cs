@@ -19,7 +19,7 @@ namespace AlgorithmsDataStructures2
             
             if (depth > 0 && a != null)
             {
-                maxSize = Convert.ToInt32(Math.Pow(2, depth) - 1);
+                maxSize = Convert.ToInt32(Math.Pow(2, depth+1)-1);
                 HeapArray = new int[maxSize];
                 HeapSize = 0;
                 Array.Sort(a);
