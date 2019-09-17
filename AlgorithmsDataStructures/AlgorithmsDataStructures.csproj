@@ -68,6 +68,7 @@
     <Compile Include="DynArray.cs" />
     <Compile Include="HashTable.cs" />
     <Compile Include="HashTableUniveral.cs" />
+    <Compile Include="HEAP.cs" />
     <Compile Include="LinkedDual.cs" />
     <Compile Include="Linked.cs" />
     <Compile Include="MyStrack.cs" />

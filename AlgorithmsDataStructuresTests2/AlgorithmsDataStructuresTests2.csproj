@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="aBSTTests.cs" />
     <Compile Include="BalancedBSTTests.cs" />
+    <Compile Include="HeapTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

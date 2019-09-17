@@ -1,0 +1,37 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AlgorithmsDataStructures2;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AlgorithmsDataStructures2.Tests
+{
+    [TestClass()]
+    public class HeapTests
+    {
+        [TestMethod()]
+        public void HeapTest()
+        {
+            int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 };
+            int n = arr.Length;
+            Heap heap = new Heap();
+            heap.MakeHeap(arr, 4);
+
+            if (heap.GetMax() != 17) Assert.Fail();
+            heap.Add(20);
+            if (heap.GetMax() != 20) Assert.Fail();
+            if (heap.HeapSize != 12) Assert.Fail();
+            heap.Add(25);
+            heap.Add(124);
+            if (heap.GetMax() != 124) Assert.Fail();
+            heap.Add(2);
+            heap.Add(7);
+            heap.Add(244);
+            if (heap.GetMax() != 124) Assert.Fail();
+            if (heap.HeapSize != 15) Assert.Fail();
+        }
+
+    }
+}
