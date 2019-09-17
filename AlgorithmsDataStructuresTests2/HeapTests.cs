@@ -65,12 +65,12 @@ namespace AlgorithmsDataStructures2.Tests
         [TestMethod]
         public void Add15Elemets()
         {
-            int[] arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17 ,2,7,16,11};
+            int[] arr = { 110,90,40,70,80,30,10,20,50,60,65,31,29,11,9};
             if (arr.Length != 15) Assert.Fail();
 
             Heap heap = new Heap();
             heap.MakeHeap(arr, 3);
-            if (heap.GetMax() != 17) Assert.Fail();
+            if (heap.GetMax() != 110) Assert.Fail();
             if (heap.HeapArray.Length != 15) Assert.Fail();
             if (heap.HeapSize != 15) Assert.Fail();
 

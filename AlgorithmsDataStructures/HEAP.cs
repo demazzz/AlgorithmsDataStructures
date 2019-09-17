@@ -22,8 +22,6 @@ namespace AlgorithmsDataStructures2
                 maxSize = Convert.ToInt32(Math.Pow(2, depth+1)-1);
                 HeapArray = new int[maxSize];
                 HeapSize = 0;
-                Array.Sort(a);
-                Array.Reverse(a);
                 foreach (int item in a)
                 {
                     Add(item);
