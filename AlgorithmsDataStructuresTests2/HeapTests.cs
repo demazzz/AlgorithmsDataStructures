@@ -40,16 +40,18 @@ namespace AlgorithmsDataStructures2.Tests
             Heap heap = new Heap();
             heap.MakeHeap(arr, 2);
             if (heap.HeapArray[0] != 0) Assert.Fail();
+
             Heap heap1 = new Heap();
             int[] arr1 = {1,2,3,4 };
-            heap1.MakeHeap(arr1, 0);
-            if (heap1.HeapArray != null) Assert.Fail();
             heap1.MakeHeap(arr1, -1);
             if (heap1.HeapArray != null) Assert.Fail();
-            heap1.MakeHeap(arr1, 1);
+
+            heap1.MakeHeap(arr1, 0);
             if (heap1.HeapArray.Length != 1) Assert.Fail();
-            heap1.MakeHeap(arr1, 2);
+            heap1.MakeHeap(arr1, 1);
             if (heap1.HeapArray.Length != 3) Assert.Fail();
+            heap1.MakeHeap(arr1, 2);
+            if (heap1.HeapArray.Length != 7) Assert.Fail();
             
             Heap heap2 = new Heap();
             heap2.MakeHeap(null, 0);

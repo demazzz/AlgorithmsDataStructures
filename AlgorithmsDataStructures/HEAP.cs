@@ -17,7 +17,7 @@ namespace AlgorithmsDataStructures2
             // размер массива выбираем на основе глубины depth
             // ...
             
-            if (depth > 0 && a != null)
+            if (depth >= 0 && a != null)
             {
                 maxSize = Convert.ToInt32(Math.Pow(2, depth+1)-1);
                 HeapArray = new int[maxSize];
