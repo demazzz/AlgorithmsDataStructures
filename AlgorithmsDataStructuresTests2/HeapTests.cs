@@ -22,15 +22,15 @@ namespace AlgorithmsDataStructures2.Tests
             if (heap.GetMax() != 17) Assert.Fail();
             heap.Add(20);
             if (heap.GetMax() != 20) Assert.Fail();
-            if (heap.HeapSize != 12) Assert.Fail();
+            if (heap.HeapSize != 10) Assert.Fail();
             heap.Add(25);
             heap.Add(124);
             if (heap.GetMax() != 124) Assert.Fail();
             if (!heap.Add(2)) Assert.Fail();
-            if (heap.Add(7)) Assert.Fail();
-            if (heap.Add(244)) Assert.Fail();
-            if (heap.GetMax() != 124) Assert.Fail();
-            if (heap.HeapSize != 15) Assert.Fail();
+            if (!heap.Add(7)) Assert.Fail();
+            if (!heap.Add(244)) Assert.Fail();
+            if (heap.GetMax() != 244) Assert.Fail();
+            if (heap.HeapSize != 13) Assert.Fail();
         }
 
         [TestMethod()]
@@ -72,7 +72,13 @@ namespace AlgorithmsDataStructures2.Tests
             heap.MakeHeap(arr, 3);
             if (heap.GetMax() != 110) Assert.Fail();
             if (heap.HeapArray.Length != 15) Assert.Fail();
+            if (heap.HeapSize != 14) Assert.Fail();
+            heap.Add(190);
             if (heap.HeapSize != 15) Assert.Fail();
+            if (heap.GetMax() != 190) Assert.Fail();
+            heap.Add(45);
+            if (heap.HeapSize != 15) Assert.Fail();
+            if (heap.GetMax() != 90) Assert.Fail();
 
         }
 

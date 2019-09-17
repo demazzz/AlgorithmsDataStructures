@@ -20,9 +20,11 @@ namespace AlgorithmsDataStructures
            int n = arr.Length;  
            Heap heap = new Heap();
 
-            heap.MakeHeap(arr,3);
+            
             heap.MakeHeap(arr, 1);
             heap.MakeHeap(arr, 2);
+            heap.MakeHeap(arr, 3);
+            int test1 = heap.GetMax();
 
             Console.ReadLine();
 

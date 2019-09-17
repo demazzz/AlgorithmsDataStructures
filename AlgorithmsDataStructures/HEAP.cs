@@ -22,6 +22,8 @@ namespace AlgorithmsDataStructures2
                 maxSize = Convert.ToInt32(Math.Pow(2, depth+1)-1);
                 HeapArray = new int[maxSize];
                 HeapSize = 0;
+                //Array.Sort(a);
+                //Array.Reverse(a);
                 foreach (int item in a)
                 {
                     Add(item);
@@ -38,8 +40,15 @@ namespace AlgorithmsDataStructures2
             if (HeapArray.Length > 0)
                 {
 
-                    return HeapArray[0];
+                int toreturn = HeapArray[0];
+                HeapArray[0] = 0;
+                for (int i1 = maxSize / 2; i1 >= 0; i1--)
+                {
+                    heapify(i1);
                 }
+                HeapSize--;
+                return toreturn;
+            }
             else
             return -1; // если куча пуста
         }
