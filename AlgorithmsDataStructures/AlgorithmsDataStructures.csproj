@@ -80,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Qeues.cs" />
     <Compile Include="queues_additions.cs" />
+    <Compile Include="SimpleGraph.cs" />
     <Compile Include="SimpleTreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
