@@ -162,30 +162,22 @@ namespace AlgorithmsDataStructures2
                     {
                         stack.Push(node);
                     }
-
                 Node = stack.Pop();
                 if ((new SimpleTree<T>(Node).Count()) % 2 == 0)
                 templist.Add(Node);
 
                 foreach (SimpleTreeNode<T> node in templist)
                 {
-                    
                     if (node.Parent!=null)
                     {
                         return_list.Add(node.Parent.NodeValue);
                         return_list.Add(node.NodeValue);
                         node.Parent.Children.Remove(node);
                         node.Parent = null;
-                    }
-                    
+                    } 
                 }
             }
-            
-
-
             return return_list;
         }
-
     }
-
 }

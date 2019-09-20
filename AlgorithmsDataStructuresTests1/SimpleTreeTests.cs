@@ -122,8 +122,6 @@ namespace AlgorithmsDataStructures2.Tests
             SimpleTreeNode<int> c4 = new SimpleTreeNode<int>(8, b3);
             SimpleTreeNode<int> d1 = new SimpleTreeNode<int>(9, c4);
             SimpleTreeNode<int> d2 = new SimpleTreeNode<int>(10, c4);
-            SimpleTreeNode<int> TEMP = new SimpleTreeNode<int>(11, c3);
-            //SimpleTreeNode<int> TEMP2 = new SimpleTreeNode<int>(12, TEMP);
             SimpleTree<int> tree = new SimpleTree<int>(a1);
             tree.AddChild(a1, b1);
             tree.AddChild(a1, b2);
@@ -134,10 +132,9 @@ namespace AlgorithmsDataStructures2.Tests
             tree.AddChild(b3, c4);
             tree.AddChild(c4, d1);
             tree.AddChild(c4, d2);
-            tree.AddChild(c3, TEMP);
-           // tree.AddChild(TEMP, TEMP2);
             List<int> list = tree.EvenTrees();
-            if (tree.LeafCount() != 5) Assert.Fail();
+            if (list[0] != 1 && list[1] != 3 && list[2] != 1 && list[3] != 6) Assert.Fail();
+            if (tree.LeafCount() != 2) Assert.Fail();
         }
     }
 }
