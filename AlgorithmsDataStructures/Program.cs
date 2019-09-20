@@ -16,8 +16,8 @@ namespace AlgorithmsDataStructures
         static void Main(string[] args)
         {
 
-           //int []arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17,2,124,244,11,111 };  
-           //int n = arr.Length;
+            //int []arr = { 1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17,2,124,244,11,111 };  
+            //int n = arr.Length;
             //SimpleGraph graph = new SimpleGraph(4);
             //graph.AddVertex(10);
             //graph.AddVertex(15);
@@ -39,30 +39,31 @@ namespace AlgorithmsDataStructures
             //graph.RemoveVertex(1);
             //graph.output();
 
-            SimpleGraph graph = new SimpleGraph(4);
-
-            int[] arr = { 10, 15, 21, 23 };
-
-            foreach (int item in arr)
-            {
-                graph.AddVertex(item);
-                for (int i = 0; i < graph.max_vertex; i++)
-                {
-                    if (graph.vertex[i] != null)
-                    {
-                        if (graph.vertex[i].Value == item)
-                        {
-                            for (int j = 0; j < graph.max_vertex; j++)
-                            {
-                                if (graph.IsEdge(i, j)) Console.WriteLine("FAIL");
-                                else Console.WriteLine("no edges !!!!!!!");
-                            }
-
-                        }
-                    }
-                }
-
-            }
+            SimpleTreeNode<int> a1 = new SimpleTreeNode<int>(1, null);
+            SimpleTreeNode<int> b1 = new SimpleTreeNode<int>(2, a1);
+            SimpleTreeNode<int> b2 = new SimpleTreeNode<int>(3, a1);
+            SimpleTreeNode<int> b3 = new SimpleTreeNode<int>(6, a1);
+            SimpleTreeNode<int> c1 = new SimpleTreeNode<int>(5, b1);
+            SimpleTreeNode<int> c2 = new SimpleTreeNode<int>(7, b1);
+            SimpleTreeNode<int> c3 = new SimpleTreeNode<int>(4, b2);
+            SimpleTreeNode<int> c4 = new SimpleTreeNode<int>(8, b3);
+            SimpleTreeNode<int> d1 = new SimpleTreeNode<int>(9, c4);
+            SimpleTreeNode<int> d2 = new SimpleTreeNode<int>(10, c4);
+            //SimpleTreeNode<int> TEMP = new SimpleTreeNode<int>(11, c3);
+            //SimpleTreeNode<int> TEMP2 = new SimpleTreeNode<int>(12, TEMP);
+            SimpleTree<int> tree = new SimpleTree<int>(a1);
+            tree.AddChild(a1, b1);
+            tree.AddChild(a1, b2);
+            tree.AddChild(a1, b3);
+            tree.AddChild(b1, c1);
+            tree.AddChild(b1, c2);
+            tree.AddChild(b2, c3);
+            tree.AddChild(b3, c4);
+            tree.AddChild(c4, d1);
+            tree.AddChild(c4, d2);
+            //tree.AddChild(c3, TEMP);
+            //tree.AddChild(TEMP, TEMP2);
+            List<int> list = tree.EvenTrees();
 
                 Console.ReadLine();
 

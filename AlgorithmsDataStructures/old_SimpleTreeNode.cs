@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AlgorithmsDataStructures2
+namespace AlgorithmsDataStructures1
 {
     public class SimpleTreeNode<T>
     {
@@ -40,6 +40,7 @@ namespace AlgorithmsDataStructures2
         public void DeleteNode(SimpleTreeNode<T> NodeToDelete)
         {
             // ваш код удаления существующего узла NodeToDelete
+            
             if (NodeToDelete.Parent != null)
             {
                 NodeToDelete.Parent.Children.Remove(NodeToDelete);
@@ -62,13 +63,13 @@ namespace AlgorithmsDataStructures2
                 if (Node.Children != null)
                     foreach (SimpleTreeNode<T> node in Node.Children)
                     {
-                        stack.Push(node);
+                    stack.Push(node);
                     }
-
+                
                 Node = stack.Pop();
                 returnList.Add(Node);
             }
-            return returnList;
+                return returnList;
         }
 
         public List<SimpleTreeNode<T>> FindNodesByValue(T val)
@@ -88,10 +89,10 @@ namespace AlgorithmsDataStructures2
 
                 Node = stack.Pop();
                 if (Comparer<T>.Default.Compare(Node.NodeValue, val) == 0)
-
-                    returnList.Add(Node);
+                    
+                returnList.Add(Node);
             }
-            return returnList;
+            return returnList;;
         }
 
         public void MoveNode(SimpleTreeNode<T> OriginalNode, SimpleTreeNode<T> NewParent)
@@ -104,6 +105,7 @@ namespace AlgorithmsDataStructures2
                 OriginalNode.Parent.Children.Remove(OriginalNode);
                 AddChild(NewParent, node);
             }
+             
         }
 
         public int Count()
@@ -128,7 +130,7 @@ namespace AlgorithmsDataStructures2
 
         public int LeafCount()
         {
-            // количество листьев в дереве
+            // количество всех узлов в дереве
             int count = 0;
             Stack<SimpleTreeNode<T>> stack = new Stack<SimpleTreeNode<T>>();
             SimpleTreeNode<T> Node = Root;
@@ -142,49 +144,62 @@ namespace AlgorithmsDataStructures2
                     }
                 else { count++; }
                 Node = stack.Pop();
-
+                
             }
             return count;
         }
-
-        public List<T> EvenTrees()
+        public void DeepAllNodes(int variant,T val)
         {
-            List<T> return_list = new List<T>();
-            List<SimpleTreeNode<T>> templist = new List<SimpleTreeNode<T>>();
-
-            SimpleTreeNode<T> Node = Root;
-            Stack<SimpleTreeNode<T>> stack = new Stack<SimpleTreeNode<T>>();
-            stack.Push(Root);
-            while(stack.Count>0)
+            if(variant==0)
             {
-                if (Node.Children!=null)
-               foreach(SimpleTreeNode<T> node in Node.Children)
-                    {
-                        stack.Push(node);
-                    }
 
-                Node = stack.Pop();
-                if ((new SimpleTree<T>(Node).Count()) % 2 == 0)
-                templist.Add(Node);
-
-                foreach (SimpleTreeNode<T> node in templist)
-                {
-                    
-                    if (node.Parent!=null)
-                    {
-                        return_list.Add(node.Parent.NodeValue);
-                        return_list.Add(node.NodeValue);
-                        node.Parent.Children.Remove(node);
-                        node.Parent = null;
-                    }
-                    
-                }
             }
-            
+            else if (variant==1)
+            {
 
+            }
+            else if (variant==2)
+            {
+                preorder(Root, val);
+            }  
 
-            return return_list;
         }
+        public SimpleTreeNode<T> preorder(SimpleTreeNode<T> Node, T val)
+        {
+            if (Comparer<T>.Default.Compare(Node.NodeValue, val) == 0)
+            {
+                return Node;
+            }
+           else if (Node.Children.Count>0)
+            {
+                return preorder(Node.Children[0], val);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        private void CLR(SimpleTreeNode<T> node, ref string s, bool detailed)
+        {
+            /*
+             Аргументы метода:
+             1. TreeNode node - текущий "элемент дерева" (ref  передача по ссылке)       
+             2. ref string s - строка, в которой накапливается результат (ref - передача по ссылке)
+            */
+            if (node != null)
+            {
+                if (detailed)
+                    s += "    получили значение " + node.NodeValue.ToString() + Environment.NewLine;
+                else
+                    s += node.NodeValue.ToString() + " "; // запомнить текущее значение
+                if (detailed) s += "    обходим левое поддерево" + Environment.NewLine;
+                CLR(node.Children[0], ref s, detailed); // обойти левое поддерево
+                if (detailed) s += "    обходим правое поддерево" + Environment.NewLine;
+                CLR(node.Children[1], ref s, detailed); // обойти правое поддерево
+            }
+            else if (detailed) s += "    значение отсутствует - null" + Environment.NewLine;
+        }
+
 
     }
 

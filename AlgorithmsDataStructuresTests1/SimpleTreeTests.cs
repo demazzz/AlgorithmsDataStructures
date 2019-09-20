@@ -97,11 +97,6 @@ namespace AlgorithmsDataStructures2.Tests
             List<SimpleTreeNode<string>> ab = tree.GetAllNodes();
         }
 
-        [TestMethod()]
-        public void GetAllNodesTest()
-        {
-            Assert.Fail();
-        }
 
         [TestMethod()]
         public void FindNodesByValueTest()
@@ -115,21 +110,34 @@ namespace AlgorithmsDataStructures2.Tests
         }
 
         [TestMethod()]
-        public void MoveNodeTest()
+        public void forest()
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void CountTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void LeafCountTest()
-        {
-            Assert.Fail();
+            SimpleTreeNode<int> a1 = new SimpleTreeNode<int>(1, null);
+            SimpleTreeNode<int> b1 = new SimpleTreeNode<int>(2, a1);
+            SimpleTreeNode<int> b2 = new SimpleTreeNode<int>(3, a1);
+            SimpleTreeNode<int> b3 = new SimpleTreeNode<int>(6, a1);
+            SimpleTreeNode<int> c1 = new SimpleTreeNode<int>(5, b1);
+            SimpleTreeNode<int> c2 = new SimpleTreeNode<int>(7, b1);
+            SimpleTreeNode<int> c3 = new SimpleTreeNode<int>(4, b2);
+            SimpleTreeNode<int> c4 = new SimpleTreeNode<int>(8, b3);
+            SimpleTreeNode<int> d1 = new SimpleTreeNode<int>(9, c4);
+            SimpleTreeNode<int> d2 = new SimpleTreeNode<int>(10, c4);
+            SimpleTreeNode<int> TEMP = new SimpleTreeNode<int>(11, c3);
+            //SimpleTreeNode<int> TEMP2 = new SimpleTreeNode<int>(12, TEMP);
+            SimpleTree<int> tree = new SimpleTree<int>(a1);
+            tree.AddChild(a1, b1);
+            tree.AddChild(a1, b2);
+            tree.AddChild(a1, b3);
+            tree.AddChild(b1, c1);
+            tree.AddChild(b1, c2);
+            tree.AddChild(b2, c3);
+            tree.AddChild(b3, c4);
+            tree.AddChild(c4, d1);
+            tree.AddChild(c4, d2);
+            tree.AddChild(c3, TEMP);
+           // tree.AddChild(TEMP, TEMP2);
+            List<int> list = tree.EvenTrees();
+            if (tree.LeafCount() != 5) Assert.Fail();
         }
     }
 }

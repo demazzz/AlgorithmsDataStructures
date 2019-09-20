@@ -81,6 +81,7 @@
     <Compile Include="Qeues.cs" />
     <Compile Include="queues_additions.cs" />
     <Compile Include="SimpleGraph.cs" />
+    <Compile Include="old_SimpleTreeNode.cs" />
     <Compile Include="SimpleTreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
