@@ -11,7 +11,7 @@ namespace AlgorithmsDataStructures2.Tests
     [TestClass()]
     public class SimpleGraphTests
     {
-        SimpleGraph graph = new SimpleGraph(4);
+        SimpleGraph<int> graph = new SimpleGraph<int>(4);
         [TestMethod()]
         public void SimpleGraphTest()
         {
@@ -126,6 +126,12 @@ namespace AlgorithmsDataStructures2.Tests
             if (edgecount != graph.max_vertex ) Assert.Fail();
             graph.output();
             
+        }
+
+        [TestMethod()]
+        public void depth()
+        {
+            var list = graph.DepthFirstSearch(0, 3);
         }
 
       
