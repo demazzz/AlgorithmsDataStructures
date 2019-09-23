@@ -50,7 +50,7 @@ namespace AlgorithmsDataStructures2
         public void RemoveVertex(int v)
         {
             // ваш код удаления вершины со всеми её рёбрами
-            vertex[v].Value = default;
+            vertex[v].Value = default(T);
             for (int i =0; i<max_vertex; i++)
             {
                 RemoveEdge(v, i);
