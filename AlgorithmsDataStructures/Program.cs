@@ -47,10 +47,10 @@ namespace AlgorithmsDataStructures
 
 
             graph.output();
-            //graph.RemoveVertex(1);
+           // graph.RemoveVertex(1);
             graph.output();
-            var list = graph.DepthFirstSearch(1, 5);
-            var list2 = graph.BreadthFirstSearch(1, 5);
+            var list = graph.DepthFirstSearch(5, 0);
+            var list2 = graph.BreadthFirstSearch(5, 0);
             int countsame = 0;
             if (list.Count == list2.Count)
             {
