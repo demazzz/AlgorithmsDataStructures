@@ -139,7 +139,53 @@ namespace AlgorithmsDataStructures2
             }
 
             return list;
-        } 
+        }
+
+        public List<Vertex<T>> BreadthFirstSearch(int VFrom, int VTo)
+        {
+            // узлы задаются позициями в списке vertex.
+            // возвращает список узлов -- путь из VFrom в VTo
+            // или пустой список, если пути нету
+
+            List<Vertex<T>> list = new List<Vertex<T>>();
+            Queue <Vertex< T>> query = new Queue<Vertex<T>>();
+            foreach (Vertex<T> vert in vertex)
+            { vert.Hit = false; }
+            int level = 0;
+
+            Vertex<T> tempvertex = vertex[VFrom];
+            tempvertex.Hit = true;
+            query.Enqueue(tempvertex);
+            list.Add(tempvertex);
+            while (query.Count>0)
+            {
+                tempvertex = query.Dequeue();
+                
+                for(int i=0;i<max_vertex;i++)
+                {
+                    if (vertex[i].Hit==false && m_adjacency[indexof(tempvertex),i] ==1)
+                    {
+                        
+                        query.Enqueue(vertex[i]);
+                        vertex[i].Hit = true;
+
+                        if (!list.Contains(tempvertex)) list.Add(tempvertex);
+                        if (vertex[i]==vertex[VTo])
+                        { 
+                            list.Add(vertex[i]);
+                            return list;
+                        }
+                        
+                    }
+                    
+                }
+                level++;
+            }
+            
+            return list;
+        }
+
+
 
         private int indexof(Vertex<T> input)
         {

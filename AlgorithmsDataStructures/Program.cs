@@ -39,10 +39,27 @@ namespace AlgorithmsDataStructures
             graph.AddVertex(30);//nothing should change
             graph.output();
             graph.AddEdge(1, 1);
+            ////graph.AddEdge(0, 1);
+            ////graph.AddEdge(0, 2);
+            ////graph.AddEdge(0, 4);
+            ////graph.AddEdge(1, 5);
+            ////graph.AddEdge(2, 3);
+
+
             graph.output();
             //graph.RemoveVertex(1);
             graph.output();
             var list = graph.DepthFirstSearch(1, 5);
+            var list2 = graph.BreadthFirstSearch(1, 5);
+            int countsame = 0;
+            if (list.Count == list2.Count)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Value != list2[i].Value) countsame++;
+                }
+            }
+            else countsame = -150;
             {//SimpleTreeNode<int> a1 = new SimpleTreeNode<int>(1, null);
              //SimpleTreeNode<int> b1 = new SimpleTreeNode<int>(2, a1);
              //SimpleTreeNode<int> b2 = new SimpleTreeNode<int>(3, a1);
