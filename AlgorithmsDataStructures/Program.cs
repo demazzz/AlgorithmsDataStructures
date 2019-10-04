@@ -85,6 +85,8 @@ namespace AlgorithmsDataStructures
              ////tree.AddChild(c3, TEMP);
              ////tree.AddChild(TEMP, TEMP2);
              //List<int> list = tree.EvenTrees();
+
+                graph.WeakVertices();
             }
             Console.ReadLine();
 

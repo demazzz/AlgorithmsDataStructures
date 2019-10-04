@@ -185,7 +185,43 @@ namespace AlgorithmsDataStructures2
             return list;
         }
 
+        public List<Vertex<T>> WeakVertices()
+        {
+            // возвращает список узлов вне треугольников
+            List<Vertex<T>> output = new List<Vertex<T>>();
 
+            List<Vertex<T>> hasthree = new List<Vertex<T>>();
+            
+            for(int i = 0;i<max_vertex;i++)
+            {
+                
+                for (int j =0;j<max_vertex;j++)
+                {
+                    if (IsEdge(i,j))
+                    {
+                        for (int z= 0; z<max_vertex;z++)
+                        {
+                            if (IsEdge(z, j))
+                            {
+                                if (IsEdge(i, z))
+                                {
+                                    hasthree.Add(vertex[i]);
+                                    hasthree.Add(vertex[j]);
+                                    hasthree.Add(vertex[z]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i1=0;i1<max_vertex;i1++)
+            {
+                if (!hasthree.Contains(vertex[i1]))
+                { output.Add(vertex[i1]); }
+            }
+
+            return output;
+        }
 
         private int indexof(Vertex<T> input)
         {
