@@ -7,28 +7,29 @@ namespace SortSpace
     {
         public static int[] SelectionSortStep(int[] array, int i)
         {
-
-            for (int j = i;j<array.Length;j++)
+            if (i < array.Length)
             {
+                for (int j = i; j < i + 1; j++)
+                {
 
-                int min = array[j];
-                int index = 0;
-                int temp = min;
-                for (int k=j;k<array.Length;k++)
-                if (min>array[k])
-                {
-                        
-                    min = array[k];
-                        
-                        index = k;
-                }
-                if (min != temp)
-                {
-                    array[index] = temp;
-                    array[j] = min;
+                    int min = array[j];
+                    int index = 0;
+                    int temp = min;
+                    for (int k = j; k < array.Length; k++)
+                        if (min > array[k])
+                        {
+
+                            min = array[k];
+
+                            index = k;
+                        }
+                    if (min != temp)
+                    {
+                        array[index] = temp;
+                        array[j] = min;
+                    }
                 }
             }
-
             return array;
         }
 

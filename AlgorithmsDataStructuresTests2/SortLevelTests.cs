@@ -27,8 +27,8 @@ namespace SortSpace.Tests
             Thread.Sleep(100);
             var opt3 = SortLevel.SelectionSortStep(arr3, 3);
             Thread.Sleep(100);
-            if (!(opt0[0] == 1 && opt0[1] == 2 && opt0[2] == 3 && opt0[3] == 4)) Assert.Fail();
-            if (!(opt1[0] == 4 && opt1[1] == 1 && opt1[2] == 2 && opt1[3] == 3)) Assert.Fail();
+            if (!(opt0[0] == 1 && opt0[1] == 3 && opt0[2] == 4 && opt0[3] == 2)) Assert.Fail();
+            if (!(opt1[0] == 4 && opt1[1] == 1 && opt1[2] == 3 && opt1[3] == 2)) Assert.Fail();
             if (!(opt2[0] == 4 && opt2[1] == 3 && opt2[2] == 1 && opt2[3] == 2)) Assert.Fail();
             if (!(opt3[0] == 4 && opt3[1] == 3 && opt3[2] == 1 && opt3[3] == 2)) Assert.Fail();
 
