@@ -85,6 +85,7 @@
     <Compile Include="SimpleGraph.cs" />
     <Compile Include="old_SimpleTreeNode.cs" />
     <Compile Include="SimpleTreeNode.cs" />
+    <Compile Include="SortLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
