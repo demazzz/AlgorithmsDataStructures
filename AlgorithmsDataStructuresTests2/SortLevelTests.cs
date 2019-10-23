@@ -44,5 +44,36 @@ namespace SortSpace.Tests
             if (SortLevel.BubbleSortStep(raa) == false) Assert.Fail();
             if (SortLevel.BubbleSortStep(arr1) == true) Assert.Fail();
         }
+
+        [TestMethod()]
+        public void InsertionSortStep()
+        {
+            var opt1 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
+            var etalon1 = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            var etalon2 = new int[] {1,2,3,4 };
+            var opt2 = new int[] { 4, 3, 1, 2 };
+            var opt3 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
+            var etalon3 = new int[] { 1, 3, 5, 4, 6, 2, 7 };
+
+            SortLevel.InsertionSortStep(opt2, 1, 0);
+            SortLevel.InsertionSortStep(opt1, 1, 0);
+            SortLevel.InsertionSortStep(opt3, 3, 1);
+
+            for (int i = 0; i < opt1.Length; i++)
+            {
+                if (etalon1[i] != opt1[i]) Assert.Fail();
+            }
+
+            for (int i = 0; i < opt2.Length; i++)
+            {
+                if (etalon2[i] != opt2[i]) Assert.Fail();
+            }
+            for (int i = 0; i < opt3.Length; i++)
+            {
+                if (etalon3[i] != opt3[i]) Assert.Fail();
+            }
+
+
+        }
     }
 }

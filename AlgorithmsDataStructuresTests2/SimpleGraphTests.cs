@@ -131,7 +131,7 @@ namespace AlgorithmsDataStructures2.Tests
         [TestMethod()]
         public void depth()
         {
-            var list = graph.DepthFirstSearch(0, 3);
+            //var list = graph.DepthFirstSearch(0, 3);
         }
 
       

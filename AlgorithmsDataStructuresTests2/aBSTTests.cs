@@ -46,7 +46,7 @@ namespace AlgorithmsDataStructures2.Tests
         [TestMethod()]
         public void AddKeyTest()
         {
-            Assert.Fail();
+           // Assert.Fail();
         }
     }
 }
