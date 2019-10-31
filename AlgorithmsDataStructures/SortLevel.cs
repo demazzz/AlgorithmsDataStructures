@@ -53,7 +53,7 @@ namespace SortSpace
 
         public static void InsertionSortStep(int[] array, int step, int i)
         {
-            for (int i1 =i+step; i1 < array.Length; i1+=step)
+            for (int i1 =i+step; i1 < array.Length; i1=i1+step)
             {
                 if (i1 == i+step && array[i1] < array[i])
                 {
@@ -69,8 +69,8 @@ namespace SortSpace
                     for (int j = i; j < i1; j+=step)
                     {
                         int temp2 = array[j];
-
-                        if (temp < temp2 || (j == i1-step) && i1!=array.Length-1)
+                        if (temp == 2) j = j;
+                        if (temp < temp2 || (j == i1-step) && i1!=array.Length-1 && temp < temp2)
                         {
                             array[j] = temp;
                             temp = array[j +step];
@@ -78,36 +78,10 @@ namespace SortSpace
                         }
                     }
                 }
+                break;
             }
         }
-        public static void InsertionSortStep(int[] array)
-        {
-            for (int i =1; i< array.Length;i++)
-            {
-                if (i==1 && array[i+1]<array[0])
-                {
-                    int temp = array[0];
-                    array[0] = array[i+1];
-                    array[i+1] = temp;
-                }
-                else
-                {
-                    int temp = array[i];
-                    for (int j = 0; j<i;j++)
-                    {
-                        int temp2 = array[j];
-
-                        if (temp<temp2 || j==i-1)
-                        {
-                            array[j] = temp;
-                            temp = array[j + 1];
-                            array[j + 1] = temp2;
-                        }
-                    }
-                }
-            }
-
-        }
+       
 
     }
 }

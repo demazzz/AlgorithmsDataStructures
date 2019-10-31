@@ -49,9 +49,9 @@ namespace SortSpace.Tests
         public void InsertionSortStep()
         {
             var opt1 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
-            var etalon1 = new int[] { 1, 2, 3, 4, 5, 6, 7 };
+            var etalon1 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
             var etalon2 = new int[] {1,2,3,4 };
-            var opt2 = new int[] { 4, 3, 1, 2 };
+            var opt2 = new int[] { 1, 2, 3, 4 };
             var opt3 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
             var etalon3 = new int[] { 1, 3, 5, 4, 6, 2, 7 };
 
