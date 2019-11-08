@@ -48,15 +48,15 @@ namespace SortSpace.Tests
         [TestMethod()]
         public void InsertionSortStep()
         {
-            var opt1 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
+            var opt1 = new int[] { 7, 6, 5, 4, 3, 2, 1 };
             var etalon1 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
             var etalon2 = new int[] {1,2,3,4 };
-            var opt2 = new int[] { 1, 2, 3, 4 };
+            var opt2 = new int[] { 4,3,2,1 };
             var opt3 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
             var etalon3 = new int[] { 1, 3, 5, 4, 6, 2, 7 };
 
             SortLevel.InsertionSortStep(opt2, 1, 0);
-            SortLevel.InsertionSortStep(opt1, 1, 0);
+            SortLevel.InsertionSortStep(opt1, 3, 0);
             SortLevel.InsertionSortStep(opt3, 3, 1);
 
             for (int i = 0; i < opt1.Length; i++)
