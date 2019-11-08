@@ -33,12 +33,12 @@ namespace SortSpace
             return array;
         }
 
-        public static bool BubbleSortStep(int[] array )
+        public static bool BubbleSortStep(int[] array)
         {
             int count = 0;
-            for (int i=0; i<array.Length-1;i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                if (array[i]>array[i+1])
+                if (array[i] > array[i + 1])
                 {
                     int temp = array[i];
                     array[i] = array[i + 1];
@@ -69,7 +69,6 @@ namespace SortSpace
         //            for (int j = i; j < i1; j += step)
         //            {
         //                int temp2 = array[j];
-        //                if (temp == 2) j = j;
         //                if (temp < temp2 || ((j == i1 - step) && i1 != array.Length - 1))
         //                {
         //                    array[j] = temp;
@@ -83,7 +82,7 @@ namespace SortSpace
         //}
         public static void InsertionSortStep(int[] array, int step, int i)
         {
-            for (int i1 = i+step; i1 < array.Length; i1 = i1 + step)
+            for (int i1 = i + step; i1 < array.Length; i1 = i1 + step)
             {
                 if (i1 == i + step && array[i] > array[i1])
                 {
@@ -98,7 +97,7 @@ namespace SortSpace
                     for (int j = i; j < i1; j += step)
                     {
                         int temp2 = array[j];
-                        if (temp2>temp)
+                        if (temp2 > temp)
                         {
                             array[j] = temp;
                             temp = temp2;
@@ -108,7 +107,34 @@ namespace SortSpace
                 }
             }
         }
+        public static int[] KnuthSequence(int array_size)
+        {
+            int[] array;
 
+            //N(i) = 3 * N(i - 1) + 1
+            int i = 0;
+            int step = 0;
+            List<int> list = new List<int>();
+            list.Add(1);
+            while (step < array_size) 
+            {
+                step = 3 * list[i] + 1;
+                if (step<array_size)
+                list.Add(step);
+                i++;
+            }
+           
+            array = new int[list.Count];
+            int i2 = list.Count-1;
+            for(int i1=0;i1<list.Count;i1++)
+            {
+                array[i2] = list[i1];
+                i2--;
+               
+            }
+            
+            return array;
+        }
 
 
     }
