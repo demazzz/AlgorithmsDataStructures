@@ -107,15 +107,17 @@ namespace SortSpace
                 }
             }
         }
-        public static int[] KnuthSequence(int array_size)
+        public static List<int> KnuthSequence(int array_size)
         {
             int[] array;
 
             //N(i) = 3 * N(i - 1) + 1
             int i = 0;
             int step = 0;
-            List<int> list = new List<int>();
-            list.Add(1);
+            List<int> list = new List<int>
+            {
+                1
+            };
             while (step < array_size) 
             {
                 step = 3 * list[i] + 1;
@@ -123,17 +125,10 @@ namespace SortSpace
                 list.Add(step);
                 i++;
             }
-           
-            array = new int[list.Count];
-            int i2 = list.Count-1;
-            for(int i1=0;i1<list.Count;i1++)
-            {
-                array[i2] = list[i1];
-                i2--;
-               
-            }
+
+            list.Reverse();
             
-            return array;
+            return list;
         }
 
 
