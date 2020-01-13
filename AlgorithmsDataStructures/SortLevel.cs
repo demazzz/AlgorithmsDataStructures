@@ -138,6 +138,7 @@ namespace SortSpace
             int N = M[l / 2];
             int i1 = 0;
             int i2 = l - 1;
+            int pos = 0;
         MainItem:
             while (M[i1] < N)
             {
@@ -154,8 +155,8 @@ namespace SortSpace
                 goto begining;
             }
 
-            int pos = 0;
-            if (i1 == i2 || (i1 == i2 - 1 && M[i1] < M[i2]))
+
+            else if (i1 == i2 || (i1 == i2 - 1 && M[i1] < M[i2]))
             {
                 for (int i = 0; i < l; i++)
                 {
@@ -166,12 +167,14 @@ namespace SortSpace
                     }
                 }
             }
-            int temp = M[i1];
-            M[i1] = M[i2];
-            M[i2] = temp;
+            else
+            {
+                int temp = M[i1];
+                M[i1] = M[i2];
+                M[i2] = temp;
 
-            goto MainItem;
-
+                goto MainItem;
+            }
             ending:
             return pos;
 
