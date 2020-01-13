@@ -118,19 +118,64 @@ namespace SortSpace
             {
                 1
             };
-            while (step < array_size) 
+            while (step < array_size)
             {
                 step = 3 * list[i] + 1;
-                if (step<array_size)
-                list.Add(step);
+                if (step < array_size)
+                    list.Add(step);
                 i++;
             }
 
             list.Reverse();
-            
+
             return list;
         }
 
+        public static int ArrayChunck(int[] M)
+        {
+        begining:
+            int l = M.Length;
+            int N = M[l / 2];
+            int i1 = 0;
+            int i2 = l - 1;
+        MainItem:
+            while (M[i1] < N)
+            {
+                i1++;
+            }
+
+            while (M[i2] > N)
+            {
+                i2--;
+            }
+            if (i1 == i2 - 1 && M[i1] > M[i2])
+            {
+                Console.WriteLine("EROEROEOREOROEROEOREOR");
+                goto begining;
+            }
+
+            int pos = 0;
+            if (i1 == i2 || (i1 == i2 - 1 && M[i1] < M[i2]))
+            {
+                for (int i = 0; i < l; i++)
+                {
+                    if (N == M[i])
+                    {
+                        pos = i;
+                        goto ending;
+                    }
+                }
+            }
+            int temp = M[i1];
+            M[i1] = M[i2];
+            M[i2] = temp;
+
+            goto MainItem;
+
+            ending:
+            return pos;
+
+        }
 
     }
 }
