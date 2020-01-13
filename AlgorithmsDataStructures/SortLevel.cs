@@ -131,7 +131,7 @@ namespace SortSpace
             return list;
         }
 
-        public static int ArrayChunck(int[] M)
+        public static int ArrayChunk(int[] M)
         {
         begining:
             int l = M.Length;

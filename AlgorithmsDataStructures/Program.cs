@@ -21,7 +21,7 @@ namespace AlgorithmsDataStructures
 
             var opt = new int[] { 7, 5, 6, 4, 3, 1, 2 };
 
-            int iii = SortLevel.ArrayChunck(opt);
+            int iii = SortLevel.ArrayChunk(opt);
 
                       
 
