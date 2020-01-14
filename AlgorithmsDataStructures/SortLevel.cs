@@ -144,37 +144,68 @@ namespace SortSpace
             {
                 i1++;
             }
-
             while (M[i2] > N)
             {
-                i2--;
+                 i2--;
             }
-            if (i1 == i2 - 1 && M[i1] > M[i2])
+            if (l > 3)
             {
-                Console.WriteLine("EROEROEOREOROEROEOREOR");
-                goto begining;
-            }
-
-
-            else if (i1 == i2 || (i1 == i2 - 1 && M[i1] < M[i2]))
-            {
-                for (int i = 0; i < l; i++)
+                if (i1 == i2 - 1 && M[i1] > M[i2])
                 {
-                    if (N == M[i])
+                    int temp = M[i2];
+                    M[i2] = M[i1];
+                    M[i1] = temp;
+                    goto begining;
+                }
+
+
+                else if (i1 == i2 || (i1 == i2 - 1 && M[i1] < M[i2]))
+                {
+                    for (int i = 0; i < l; i++)
                     {
-                        pos = i;
-                        goto ending;
+                        if (N == M[i])
+                        {
+                            pos = i;
+                            goto ending;
+                        }
                     }
                 }
-            }
-            else
-            {
-                int temp = M[i1];
-                M[i1] = M[i2];
-                M[i2] = temp;
+                else
+                {
+                    int temp = M[i1];
+                    M[i1] = M[i2];
+                    M[i2] = temp;
 
-                goto MainItem;
+                    goto MainItem;
+                }
             }
+            else if (l == 3)
+            {
+                if (M[0] > M[2])
+                {
+                    int temp = M[2];
+                    M[2] = M[0];
+                    M[0] = temp;
+                }
+                if (M[0] > M[1])
+                {
+                    int temp = M[1];
+                    M[1] = M[0];
+                    M[0] = temp;
+                }
+                pos = 1;
+                goto ending;
+            }
+            else if (l == 2)
+            {
+                if (M[1]<M[0])
+                {
+                    M[0] = M[1];
+                }
+                pos = l / 2;
+                goto ending;
+            }
+            
             ending:
             return pos;
 

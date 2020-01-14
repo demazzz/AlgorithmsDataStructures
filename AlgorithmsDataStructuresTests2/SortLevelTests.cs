@@ -38,7 +38,7 @@ namespace SortSpace.Tests
         public void BubbleSortStepTest()
         {
             var arr = new int[] { 4, 3, 1, 2 };
-            var raa = new int[] { 1,2,3,4 };
+            var raa = new int[] { 1, 2, 3, 4 };
             var arr1 = new int[] { 1, 2, 4, 3 };
             if (SortLevel.BubbleSortStep(arr) == true) Assert.Fail();
             if (SortLevel.BubbleSortStep(raa) == false) Assert.Fail();
@@ -50,8 +50,8 @@ namespace SortSpace.Tests
         {
             var opt1 = new int[] { 7, 6, 5, 4, 3, 2, 1 };
             var etalon1 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
-            var etalon2 = new int[] {1,2,3,4 };
-            var opt2 = new int[] { 4,3,2,1 };
+            var etalon2 = new int[] { 1, 2, 3, 4 };
+            var opt2 = new int[] { 4, 3, 2, 1 };
             var opt3 = new int[] { 1, 6, 5, 4, 3, 2, 7 };
             var etalon3 = new int[] { 1, 3, 5, 4, 6, 2, 7 };
 
@@ -72,6 +72,34 @@ namespace SortSpace.Tests
             {
                 if (etalon3[i] != opt3[i]) Assert.Fail();
             }
+
+
+        }
+
+        [TestMethod()]
+        public void ArrayChunkTest()
+        {
+            var opt = new int[] { 7, 5, 6, 4, 3, 1, 2 };
+            
+            var opt1 = new int[] {1};
+            var opt2 = new int[] {1,2};
+            var opt3 = new int[] { 9,5,8};
+            var opt31 = new int[] { 1, 5, 8 };
+            var opt4 = new int[] { 4,6,8,1};
+            var opt5 = new int[] { 7, 5, 6, 4, 3, 1, 2 };
+
+            int iii = SortLevel.ArrayChunk(opt);
+            int iii1 = SortLevel.ArrayChunk(opt1);
+            int iii2 = SortLevel.ArrayChunk(opt2);
+            int iii21 = SortLevel.ArrayChunk(opt31);
+            int iii3 = SortLevel.ArrayChunk(opt3);
+            int iii4 = SortLevel.ArrayChunk(opt4);
+            int iii5 = SortLevel.ArrayChunk(opt5);
+            
+            if (iii != 3) Assert.Fail();
+
+            
+
 
 
         }
