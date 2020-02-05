@@ -131,7 +131,7 @@ namespace SortSpace
             return list;
         }
 
-        public static int ArrayChunk(int[] M)
+        public static int ArrayChunk(ref int[] M)
         {
         begining:
             int l = M.Length;
@@ -209,6 +209,52 @@ namespace SortSpace
             ending:
             return pos;
 
+        }
+
+        //public static void QuickSort(int[] array, int left =0, int right = -1)
+        //{
+        //    if (right < 0) right = array.Length - 1;
+        //    if (left >= right)
+        //        return;
+        //    if (left==right)
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        int middleIndex = (right - left) / 2 + left, currentIndex = right;
+
+        //        int N = ArrayChunk(ref array);
+        //        if (N <= 0) return;
+        //        QuickSort(array, left, N - 1);
+        //        QuickSort(array, N + 1, right);
+        //    }
+        //}
+
+        public static void QuickSort(int[] array, int left = 0, int right = -1)
+        {
+            if (right < 0)
+                right = array.Length - 1;
+            if (left >= right)
+                return;
+            int middleIndex = (right - left) / 2 + left, currentIndex = left;
+            Swap(ref array[left], ref array[middleIndex]);
+            for (int i = left + 1; i <= right; ++i)
+            {
+                if (array[i] <= array[left])
+                {
+                    Swap(ref array[++currentIndex], ref array[i]);
+                }
+            }
+            Swap(ref array[left], ref array[currentIndex]);
+            QuickSort(array, left, currentIndex - 1);
+            QuickSort(array, currentIndex + 1, right);
+        }
+        static void Swap(ref int a, ref int b)
+        {
+            int tmp = a;
+            a = b;
+            b = tmp;
         }
 
     }
